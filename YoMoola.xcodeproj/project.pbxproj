@@ -14,6 +14,10 @@
 		EB00B02F2988A2B900D696E7 /* YoMoolaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00B02E2988A2B900D696E7 /* YoMoolaTests.swift */; };
 		EB00B0392988A2B900D696E7 /* YoMoolaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00B0382988A2B900D696E7 /* YoMoolaUITests.swift */; };
 		EB00B03B2988A2B900D696E7 /* YoMoolaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00B03A2988A2B900D696E7 /* YoMoolaUITestsLaunchTests.swift */; };
+		EB4DE3EE298B341000C4418C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3ED298B341000C4418C /* Color.swift */; };
+		EB4DE3F3298B6E7D00C4418C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3F2298B6E7D00C4418C /* WelcomeView.swift */; };
+		EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3F7298B71DC00C4418C /* SignIn.swift */; };
+		EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3F9298B728F00C4418C /* TextInputs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,11 @@
 		EB00B0342988A2B900D696E7 /* YoMoolaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoMoolaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB00B0382988A2B900D696E7 /* YoMoolaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoMoolaUITests.swift; sourceTree = "<group>"; };
 		EB00B03A2988A2B900D696E7 /* YoMoolaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoMoolaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EB00B0492988A42800D696E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EB4DE3ED298B341000C4418C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		EB4DE3F2298B6E7D00C4418C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		EB4DE3F7298B71DC00C4418C /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		EB4DE3F9298B728F00C4418C /* TextInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +103,10 @@
 		EB00B01C2988A2B700D696E7 /* YoMoola */ = {
 			isa = PBXGroup;
 			children = (
+				EB4DE3EF298B353100C4418C /* Components */,
+				EB4DE3EB298B33FC00C4418C /* Utilities */,
+				EB4DE3F4298B71B600C4418C /* Views */,
+				EB00B0492988A42800D696E7 /* Info.plist */,
 				EB00B01D2988A2B700D696E7 /* YoMoolaApp.swift */,
 				EB00B01F2988A2B700D696E7 /* ContentView.swift */,
 				EB00B0212988A2B800D696E7 /* Assets.xcassets */,
@@ -125,6 +138,47 @@
 				EB00B03A2988A2B900D696E7 /* YoMoolaUITestsLaunchTests.swift */,
 			);
 			path = YoMoolaUITests;
+			sourceTree = "<group>";
+		};
+		EB4DE3EB298B33FC00C4418C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EB4DE3EC298B340300C4418C /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EB4DE3EC298B340300C4418C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB4DE3ED298B341000C4418C /* Color.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EB4DE3EF298B353100C4418C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				EB4DE3F9298B728F00C4418C /* TextInputs.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EB4DE3F4298B71B600C4418C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB4DE3F5298B71C100C4418C /* Onboarding */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EB4DE3F5298B71C100C4418C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EB4DE3F7298B71DC00C4418C /* SignIn.swift */,
+				EB4DE3F2298B6E7D00C4418C /* WelcomeView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +311,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4DE3F3298B6E7D00C4418C /* WelcomeView.swift in Sources */,
 				EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */,
+				EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */,
 				EB00B01E2988A2B700D696E7 /* YoMoolaApp.swift in Sources */,
+				EB4DE3EE298B341000C4418C /* Color.swift in Sources */,
+				EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,11 +478,12 @@
 				DEVELOPMENT_TEAM = WL8A724JM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YoMoola/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,11 +508,12 @@
 				DEVELOPMENT_TEAM = WL8A724JM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YoMoola/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

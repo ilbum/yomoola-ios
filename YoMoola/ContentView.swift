@@ -8,19 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var onboardStepNumber = 0
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        if onboardStepNumber == 0 {
+            WelcomeView(onboardStepNumber: $onboardStepNumber)
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(onboardStepNumber: 0)
     }
 }
