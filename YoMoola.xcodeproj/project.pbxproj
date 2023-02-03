@@ -18,6 +18,12 @@
 		EB4DE3F3298B6E7D00C4418C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3F2298B6E7D00C4418C /* WelcomeView.swift */; };
 		EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3F7298B71DC00C4418C /* SignIn.swift */; };
 		EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3F9298B728F00C4418C /* TextInputs.swift */; };
+		EB4DE3FC298C21EF00C4418C /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3FB298C21EF00C4418C /* Properties.swift */; };
+		EB4DE400298C644200C4418C /* GreenButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE3FF298C644200C4418C /* GreenButtons.swift */; };
+		EB4DE405298C655000C4418C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EB4DE404298C655000C4418C /* README.md */; };
+		EB4DE407298C8D6A00C4418C /* FullScreenViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE406298C8D6A00C4418C /* FullScreenViews.swift */; };
+		EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40A298C92CA00C4418C /* WhiteCards.swift */; };
+		EB4DE40E298DA3C900C4418C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40D298DA3C900C4418C /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,12 @@
 		EB4DE3F2298B6E7D00C4418C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		EB4DE3F7298B71DC00C4418C /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		EB4DE3F9298B728F00C4418C /* TextInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputs.swift; sourceTree = "<group>"; };
+		EB4DE3FB298C21EF00C4418C /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		EB4DE3FF298C644200C4418C /* GreenButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenButtons.swift; sourceTree = "<group>"; };
+		EB4DE404298C655000C4418C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		EB4DE406298C8D6A00C4418C /* FullScreenViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViews.swift; sourceTree = "<group>"; };
+		EB4DE40A298C92CA00C4418C /* WhiteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteCards.swift; sourceTree = "<group>"; };
+		EB4DE40D298DA3C900C4418C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +122,7 @@
 				EB00B01D2988A2B700D696E7 /* YoMoolaApp.swift */,
 				EB00B01F2988A2B700D696E7 /* ContentView.swift */,
 				EB00B0212988A2B800D696E7 /* Assets.xcassets */,
+				EB4DE404298C655000C4418C /* README.md */,
 				EB00B0232988A2B800D696E7 /* Preview Content */,
 			);
 			path = YoMoola;
@@ -144,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4DE3EC298B340300C4418C /* Extensions */,
+				EB4DE3FB298C21EF00C4418C /* Properties.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -159,7 +173,10 @@
 		EB4DE3EF298B353100C4418C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB4DE406298C8D6A00C4418C /* FullScreenViews.swift */,
+				EB4DE3FF298C644200C4418C /* GreenButtons.swift */,
 				EB4DE3F9298B728F00C4418C /* TextInputs.swift */,
+				EB4DE40A298C92CA00C4418C /* WhiteCards.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -167,6 +184,7 @@
 		EB4DE3F4298B71B600C4418C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB4DE40C298DA3AB00C4418C /* Home */,
 				EB4DE3F5298B71C100C4418C /* Onboarding */,
 			);
 			path = Views;
@@ -179,6 +197,14 @@
 				EB4DE3F2298B6E7D00C4418C /* WelcomeView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		EB4DE40C298DA3AB00C4418C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EB4DE40D298DA3C900C4418C /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4DE405298C655000C4418C /* README.md in Resources */,
 				EB00B0252988A2B800D696E7 /* Preview Assets.xcassets in Resources */,
 				EB00B0222988A2B800D696E7 /* Assets.xcassets in Resources */,
 			);
@@ -313,10 +340,15 @@
 			files = (
 				EB4DE3F3298B6E7D00C4418C /* WelcomeView.swift in Sources */,
 				EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */,
+				EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */,
 				EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */,
+				EB4DE400298C644200C4418C /* GreenButtons.swift in Sources */,
+				EB4DE40E298DA3C900C4418C /* HomeView.swift in Sources */,
 				EB00B01E2988A2B700D696E7 /* YoMoolaApp.swift in Sources */,
 				EB4DE3EE298B341000C4418C /* Color.swift in Sources */,
+				EB4DE407298C8D6A00C4418C /* FullScreenViews.swift in Sources */,
 				EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */,
+				EB4DE3FC298C21EF00C4418C /* Properties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

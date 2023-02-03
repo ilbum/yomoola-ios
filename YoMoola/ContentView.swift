@@ -12,6 +12,10 @@ struct ContentView: View {
     var body: some View {
         if onboardStepNumber == 0 {
             WelcomeView(onboardStepNumber: $onboardStepNumber)
+        } else if onboardStepNumber == 1 {
+            SignIn(onboardStepNumber: $onboardStepNumber)
+        } else {
+            Text("Next Step")
         }
     }
 }

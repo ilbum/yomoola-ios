@@ -21,6 +21,9 @@ struct WelcomeView: View {
         }
     }
     
+    // ----------------------------------------
+    // Components
+    // ----------------------------------------
     var ImageHome: some View {
         Image("home-screen-wallet")
             .resizable()
@@ -46,22 +49,12 @@ struct WelcomeView: View {
         .padding(.bottom)
     }
     var GetStartedButton: some View {
-        HStack {
-            Button(action: {
-                print("TODO")
-            }) {
-                HStack {
-                    Spacer()
-                    Text("Get Started")
-                        .padding(.vertical, 6.0)
-                    Spacer()
-                }
+        BlockButtonDark(text: "Get Started") {
+            withAnimation(Animation.easeIn(duration: screenAnimationDuration)) {
+                onboardStepNumber = 1
             }
         }
-        .buttonStyle(.borderedProminent)
-        .tint(.accentColorDark)
-        .padding(.horizontal)
-        .padding()
+        .padding().padding(.horizontal)
     }
     var ImageCreditCards: some View {
         Image("home-screen-credit-cards")
