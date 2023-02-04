@@ -141,8 +141,6 @@ struct HomeView: View {
     // ----------------------------------------
     // # Constants
     // ----------------------------------------
-    let balance = "$120,256.00"
-    let percentages = "▲  +13.25%"
     let profileSize: CGFloat = 80.0
 }
 
@@ -154,7 +152,7 @@ struct HomeView_Previews: PreviewProvider {
 
 
 // ----------------------------------------
-// HomeScreen Image Components
+// HomeView Components
 // ----------------------------------------
 private struct HomeViewChartImage: View {
     var imageString: String

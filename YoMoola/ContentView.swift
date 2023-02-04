@@ -15,7 +15,7 @@ struct ContentView: View {
         case transactions
         case profile
     }
-    @State private var onboardStepNumber = 3
+    @State private var onboardStepNumber = 0
     @State private var selection: Tab = .home
     var body: some View {
         if onboardStepNumber == 0 {
@@ -27,7 +27,7 @@ struct ContentView: View {
                 HomeView()
                     .tabItem { Label("Home", systemImage: "house") }
                     .tag(Tab.home)
-                HomeView()
+                WalletView()
                     .tabItem { Label("Wallet", systemImage: "greetingcard") }
                     .tag(Tab.wallet)
                 HomeView()

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EB00B01E2988A2B700D696E7 /* YoMoolaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00B01D2988A2B700D696E7 /* YoMoolaApp.swift */; };
 		EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00B01F2988A2B700D696E7 /* ContentView.swift */; };
-		EB00B0222988A2B800D696E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB00B0212988A2B800D696E7 /* Assets.xcassets */; };
 		EB00B0252988A2B800D696E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB00B0242988A2B800D696E7 /* Preview Assets.xcassets */; };
 		EB00B02F2988A2B900D696E7 /* YoMoolaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00B02E2988A2B900D696E7 /* YoMoolaTests.swift */; };
 		EB00B0392988A2B900D696E7 /* YoMoolaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB00B0382988A2B900D696E7 /* YoMoolaUITests.swift */; };
@@ -25,6 +24,8 @@
 		EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40A298C92CA00C4418C /* WhiteCards.swift */; };
 		EB4DE40E298DA3C900C4418C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40D298DA3C900C4418C /* HomeView.swift */; };
 		EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */; };
+		EB4DE413298E073400C4418C /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE412298E073400C4418C /* WalletView.swift */; };
+		EB4DE415298E269E00C4418C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4DE414298E269E00C4418C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +49,6 @@
 		EB00B01A2988A2B700D696E7 /* YoMoola.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoMoola.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB00B01D2988A2B700D696E7 /* YoMoolaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoMoolaApp.swift; sourceTree = "<group>"; };
 		EB00B01F2988A2B700D696E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		EB00B0212988A2B800D696E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB00B0242988A2B800D696E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EB00B02A2988A2B900D696E7 /* YoMoolaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoMoolaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB00B02E2988A2B900D696E7 /* YoMoolaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoMoolaTests.swift; sourceTree = "<group>"; };
@@ -67,6 +67,8 @@
 		EB4DE40A298C92CA00C4418C /* WhiteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteCards.swift; sourceTree = "<group>"; };
 		EB4DE40D298DA3C900C4418C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkGreenButton.swift; sourceTree = "<group>"; };
+		EB4DE412298E073400C4418C /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		EB4DE414298E269E00C4418C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +122,10 @@
 				EB4DE3EF298B353100C4418C /* Components */,
 				EB4DE3EB298B33FC00C4418C /* Utilities */,
 				EB4DE3F4298B71B600C4418C /* Views */,
-				EB00B0492988A42800D696E7 /* Info.plist */,
-				EB00B01D2988A2B700D696E7 /* YoMoolaApp.swift */,
 				EB00B01F2988A2B700D696E7 /* ContentView.swift */,
-				EB00B0212988A2B800D696E7 /* Assets.xcassets */,
+				EB00B01D2988A2B700D696E7 /* YoMoolaApp.swift */,
+				EB00B0492988A42800D696E7 /* Info.plist */,
+				EB4DE414298E269E00C4418C /* Assets.xcassets */,
 				EB4DE404298C655000C4418C /* README.md */,
 				EB00B0232988A2B800D696E7 /* Preview Content */,
 			);
@@ -189,6 +191,7 @@
 			children = (
 				EB4DE40C298DA3AB00C4418C /* Home */,
 				EB4DE3F5298B71C100C4418C /* Onboarding */,
+				EB4DE411298E071C00C4418C /* Wallet */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +211,14 @@
 				EB4DE40D298DA3C900C4418C /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		EB4DE411298E071C00C4418C /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				EB4DE412298E073400C4418C /* WalletView.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,8 +326,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB4DE405298C655000C4418C /* README.md in Resources */,
+				EB4DE415298E269E00C4418C /* Assets.xcassets in Resources */,
 				EB00B0252988A2B800D696E7 /* Preview Assets.xcassets in Resources */,
-				EB00B0222988A2B800D696E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB4DE3F3298B6E7D00C4418C /* WelcomeView.swift in Sources */,
+				EB4DE413298E073400C4418C /* WalletView.swift in Sources */,
 				EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */,
 				EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */,
 				EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */,

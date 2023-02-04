@@ -13,6 +13,10 @@ extension Color {
         Color("AccentColorDark", bundle: nil)
     }
     
+    public static var accentColorDim: Color {
+        Color("AccentColorDim", bundle: nil)
+    }
+    
     public static var accentColorLight: Color {
         Color("AccentColorLight", bundle: nil)
     }
