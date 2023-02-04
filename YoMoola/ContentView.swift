@@ -15,7 +15,7 @@ struct ContentView: View {
         } else if onboardStepNumber == 1 {
             SignIn(onboardStepNumber: $onboardStepNumber)
         } else {
-            Text("Next Step")
+            HomeView()
         }
     }
 }

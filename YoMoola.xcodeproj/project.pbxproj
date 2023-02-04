@@ -24,6 +24,7 @@
 		EB4DE407298C8D6A00C4418C /* FullScreenViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE406298C8D6A00C4418C /* FullScreenViews.swift */; };
 		EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40A298C92CA00C4418C /* WhiteCards.swift */; };
 		EB4DE40E298DA3C900C4418C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40D298DA3C900C4418C /* HomeView.swift */; };
+		EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		EB4DE406298C8D6A00C4418C /* FullScreenViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViews.swift; sourceTree = "<group>"; };
 		EB4DE40A298C92CA00C4418C /* WhiteCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhiteCards.swift; sourceTree = "<group>"; };
 		EB4DE40D298DA3C900C4418C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkGreenButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 		EB4DE3EF298B353100C4418C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */,
 				EB4DE406298C8D6A00C4418C /* FullScreenViews.swift */,
 				EB4DE3FF298C644200C4418C /* GreenButtons.swift */,
 				EB4DE3F9298B728F00C4418C /* TextInputs.swift */,
@@ -341,6 +344,7 @@
 				EB4DE3F3298B6E7D00C4418C /* WelcomeView.swift in Sources */,
 				EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */,
 				EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */,
+				EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */,
 				EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */,
 				EB4DE400298C644200C4418C /* GreenButtons.swift in Sources */,
 				EB4DE40E298DA3C900C4418C /* HomeView.swift in Sources */,

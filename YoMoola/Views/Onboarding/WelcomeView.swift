@@ -10,22 +10,22 @@ import SwiftUI
 struct WelcomeView: View {
     @Binding var onboardStepNumber: Int
     var body: some View {
-        VStack {
+        ScrollView {
             Spacer().frame(height: 40.0)
             ImageHome
             Title
             SubTitleContent
             GetStartedButton
             ImageCreditCards
-            Spacer()
         }
+        .foregroundColor(.text)
     }
     
     // ----------------------------------------
     // Components
     // ----------------------------------------
     var ImageHome: some View {
-        Image("home-screen-wallet")
+        Image("welcome-screen-wallet")
             .resizable()
             .scaledToFit()
             .padding()
@@ -34,8 +34,8 @@ struct WelcomeView: View {
     var Title: some View {
         Text("YO\nMOOLA!")
             .foregroundColor(.accentColorDark)
-            .font(.title)
-            .fontWeight(.heavy)
+            .font(.largeTitle)
+            .fontWeight(.black)
             .padding(.bottom)
     }
     var SubTitleContent: some View {
@@ -57,7 +57,7 @@ struct WelcomeView: View {
         .padding().padding(.horizontal)
     }
     var ImageCreditCards: some View {
-        Image("home-screen-credit-cards")
+        Image("welcome-screen-credit-cards")
             .resizable()
             .scaledToFit()
             .padding()

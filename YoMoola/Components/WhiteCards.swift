@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WhiteCardShadow<Content: View>: View {
+struct WhiteCard<Content: View>: View {
     init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
     }
@@ -19,6 +19,34 @@ struct WhiteCardShadow<Content: View>: View {
         }
         .background(.white)
         .cornerRadius(20.0)
+    }
+}
+
+struct WhiteCardButton<Content: View>: View {
+    init(action: @escaping () -> Void, @ViewBuilder content: @escaping () -> Content) {
+        self.action = action
+        self.content = content
+    }
+    var action: () -> Void
+    var content: () -> Content
+    var body: some View {
+        Button(action: action) {
+            WhiteCard {
+                content()
+            }
+        }
+    }
+}
+
+struct WhiteCardShadow<Content: View>: View {
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+    var content: () -> Content
+    var body: some View {
+        WhiteCard {
+            content()
+        }
         .shadow(color: .gray.opacity(0.4), radius: 4.5, x: 0.0, y: 3.5)
     }
 }
@@ -53,9 +81,16 @@ struct WhiteCards_Previews: PreviewProvider {
                     .scaledToFit()
                     .frame(width: 40.0)
             }
+            WhiteCard {
+                Text("Hello this is no shadow")
+            }
+            WhiteCardButton(action: { print("TODO home bell") }) {
+                Text(Image(systemName: "bell"))
+                    .font(.title3)
+            }
             Spacer()
             HStack { Spacer() }
         }
-        .background(backgroundLinearGradient)
+        .background(Color.accentColor)
     }
 }

@@ -38,7 +38,7 @@ struct SignIn: View {
             RememberResetHStack
                 .padding(.horizontal)
             
-            Spacer().frame(height: 100.0)
+            Spacer().frame(height: 75.0)
             
             OrContinueWith
                 .padding(.bottom)
@@ -70,11 +70,14 @@ struct SignIn: View {
         .padding().padding(.bottom)
     }
     var Title: some View {
-        Text("Sign in to Your Account")
-            .foregroundColor(.accentColorDark)
-            .font(.title)
-            .fontWeight(.heavy)
-            .padding(.bottom)
+        HStack {
+            Text("Sign in to Your Account")
+                .foregroundColor(.accentColorDark)
+                .font(.largeTitle)
+                .fontWeight(.heavy)
+                .padding([.horizontal, .bottom]).padding(.leading)
+            Spacer()
+        }
     }
     var SignInButton: some View {
         BlockButtonDark(text: "Sign In") {
