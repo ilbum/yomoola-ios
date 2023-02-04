@@ -12,7 +12,6 @@ struct HomeView: View {
         ScrollView {
             TopSection
             BalanceSection
-            
             // Card Content
             Card
                 .padding(.top)
@@ -132,8 +131,9 @@ struct HomeView: View {
     var CardTransactions: some View {
         VStack(spacing: 15.0) {
             TransactionEntry(type: "transfer", toWallet: "YoMoola's Wallet", amount: 50)
-            TransactionEntry(type: "transfer", toWallet: "Jason's Wallet", amount: -50)
+            TransactionEntry(type: "transfer", toWallet: "Mark Anderson", amount: -50)
             TransactionEntry(type: "transfer", toWallet: "YoMoola's Wallet", amount: 50)
+            TransactionEntry(type: "transfer", toWallet: "Merchant #7", amount: 50)
         }
     }
 
