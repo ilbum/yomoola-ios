@@ -12,7 +12,7 @@ struct PayView: View {
     @State var cameraModal = false
     @State var searchString = ""
     var body: some View {
-        Form {
+        List {
             TopSection
                 .padding(.top)
             
@@ -21,12 +21,13 @@ struct PayView: View {
             
             SearchSection
                 .padding([.horizontal, .bottom])
-                .listRowSeparator(.visible, edges: .bottom)
             
             SearchResults
                 .padding(.horizontal)
         }
-        .listStyle(.sidebar)
+        .listStyle(.plain)
+        .background(backgroundLinearGradient)
+        .scrollContentBackground(.hidden)
         
 //        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
 //            VStack {
@@ -66,7 +67,6 @@ struct PayView: View {
                 .padding(.vertical)
             Spacer()
         }
-        .listRowSeparator(.visible, edges: .bottom)
     }
     var CameraSection: some View {
         Button(action: { cameraModal = true }) {
@@ -76,9 +76,7 @@ struct PayView: View {
                 Text("Open Camera Modal")
                 Spacer()
             }
-            .listRowSeparator(.hidden)
         }
-        .listRowSeparator(.visible, edges: .bottom)
         .buttonStyle(.bordered)
         .sheet(isPresented: $cameraModal) {
             CameraQrView()

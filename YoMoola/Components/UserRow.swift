@@ -23,7 +23,7 @@ struct UserRow: View {
     }
     var body: some View {
         HStack {
-            CircleImage(image: "logo", width: 50)
+            CircleImageAccentColor(image: "logo", width: 50)
                 .padding(.trailing)
             VStack(alignment: .leading) {
                 Text(name)

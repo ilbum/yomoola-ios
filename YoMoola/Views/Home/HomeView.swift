@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// ----------------------------------------
+// # HomeView
+// ----------------------------------------
 struct HomeView: View {
     var body: some View {
         FullScreenBackgroundScrollView(backgroundImage: "background-1") {
@@ -25,7 +28,7 @@ struct HomeView: View {
     }
     
     // ----------------------------------------
-    // # Components
+    // ## Components
     // ----------------------------------------
     var TopSection: some View {
         HStack(spacing: 15.0) {
@@ -65,7 +68,7 @@ struct HomeView: View {
     }
     
     // ----------------------------------------
-    // ## Card Content
+    // ### Card Content
     // ----------------------------------------
     var Card: some View {
         VStack {
@@ -143,9 +146,8 @@ struct HomeView: View {
         }
     }
 
-    
     // ----------------------------------------
-    // # Constants
+    // ## Constants
     // ----------------------------------------
     let profileSize: CGFloat = 80.0
 }
@@ -158,7 +160,7 @@ struct HomeView_Previews: PreviewProvider {
 
 
 // ----------------------------------------
-// HomeView Components
+// # HomeView Components
 // ----------------------------------------
 private struct HomeViewChartImage: View {
     var imageString: String
@@ -191,7 +193,7 @@ private struct TransactionEntry: View {
     
     var body: some View {
         HStack {
-            Text(Image(systemName: "tag.fill"))
+            ResizedImage(image: "coin-icon-USDC", width: 25)
                 .foregroundColor(Color(UIColor.secondarySystemBackground))
             Text(toWallet)
                 .foregroundColor(.text)

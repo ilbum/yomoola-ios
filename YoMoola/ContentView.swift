@@ -16,7 +16,7 @@ struct ContentView: View {
         case profile
     }
     @State private var onboardStepNumber = 3
-    @State private var selection: Tab = .home
+    @State private var selection: Tab = .profile
     var body: some View {
         if onboardStepNumber == 0 {
             WelcomeView(onboardStepNumber: $onboardStepNumber)
