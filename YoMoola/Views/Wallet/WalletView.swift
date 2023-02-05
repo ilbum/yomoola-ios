@@ -9,8 +9,10 @@ import SwiftUI
 
 struct WalletView: View {
     var body: some View {
-        ScrollView {
+        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
             TopSection
+                .padding(.top)
+                .padding(.top)
             BalanceSection
                 .padding(.bottom, 15.0)
             Actions
@@ -119,7 +121,7 @@ private struct ActionButton: View {
             }
             .padding(.horizontal, 15.0)
             .padding(.vertical, 13.0)
-            .background(Capsule().fill(Color.accentColorDim).opacity(0.5))
+            .background(Capsule().fill(Color.accentColorDim))
         }
     }
 }

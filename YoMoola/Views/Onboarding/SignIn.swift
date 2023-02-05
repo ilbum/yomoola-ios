@@ -26,9 +26,9 @@ struct SignIn: View {
                 .padding(.bottom)
             
             VStack {
-                TextFieldBordered(labelText: "Enter your email address", inputString: $email)
+                TextFieldBorderedGray(labelText: "Enter your email address", inputString: $email)
                     .padding(.bottom, 0.0)
-                TextFieldBordered(labelText: "Password", inputString: $email)
+                TextFieldBorderedGray(labelText: "Password", inputString: $email)
             }
             .padding(.horizontal)
             

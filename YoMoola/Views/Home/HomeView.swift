@@ -9,12 +9,16 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        ScrollView {
-            TopSection
-            BalanceSection
-            // Card Content
-            Card
-                .padding(.top)
+        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
+            VStack {
+                TopSection
+                    .padding(.top)
+                BalanceSection
+                // Card Content
+                Card
+                    .padding(.top)
+            }
+            .padding(.vertical)
         }
         .foregroundColor(.white)
         .background(Color.accentColor)
@@ -80,6 +84,8 @@ struct HomeView: View {
             }
             .padding([.horizontal, .bottom])
             .padding([.horizontal, .bottom])
+            .padding(.bottom)
+            .padding(.bottom)
             .padding(.bottom)
         }
         .foregroundColor(Color.accentColorDark)

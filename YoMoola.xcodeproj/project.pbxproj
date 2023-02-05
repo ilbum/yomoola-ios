@@ -26,6 +26,11 @@
 		EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */; };
 		EB4DE413298E073400C4418C /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE412298E073400C4418C /* WalletView.swift */; };
 		EB4DE415298E269E00C4418C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4DE414298E269E00C4418C /* Assets.xcassets */; };
+		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
+		EBC6A795298F476F00090A19 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A794298F476F00090A19 /* ViewExtensions.swift */; };
+		EBC6A797298F492400090A19 /* ResizedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ResizedImage.swift */; };
+		EBC6A799298F599D00090A19 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A798298F599D00090A19 /* UserRow.swift */; };
+		EBC6A79D298F64E900090A19 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A79C298F64E900090A19 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,11 @@
 		EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkGreenButton.swift; sourceTree = "<group>"; };
 		EB4DE412298E073400C4418C /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		EB4DE414298E269E00C4418C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EBC6A792298EF38900090A19 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
+		EBC6A794298F476F00090A19 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		EBC6A796298F492400090A19 /* ResizedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizedImage.swift; sourceTree = "<group>"; };
+		EBC6A798298F599D00090A19 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
+		EBC6A79C298F64E900090A19 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4DE3ED298B341000C4418C /* Color.swift */,
+				EBC6A794298F476F00090A19 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,6 +193,8 @@
 				EB4DE3FF298C644200C4418C /* GreenButtons.swift */,
 				EB4DE3F9298B728F00C4418C /* TextInputs.swift */,
 				EB4DE40A298C92CA00C4418C /* WhiteCards.swift */,
+				EBC6A796298F492400090A19 /* ResizedImage.swift */,
+				EBC6A798298F599D00090A19 /* UserRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -191,6 +204,8 @@
 			children = (
 				EB4DE40C298DA3AB00C4418C /* Home */,
 				EB4DE3F5298B71C100C4418C /* Onboarding */,
+				EBC6A791298EF37900090A19 /* Pay */,
+				EBC6A79B298F64D600090A19 /* Profile */,
 				EB4DE411298E071C00C4418C /* Wallet */,
 			);
 			path = Views;
@@ -219,6 +234,22 @@
 				EB4DE412298E073400C4418C /* WalletView.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		EBC6A791298EF37900090A19 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				EBC6A792298EF38900090A19 /* PayView.swift */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		EBC6A79B298F64D600090A19 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EBC6A79C298F64E900090A19 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,13 +388,18 @@
 				EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */,
 				EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */,
 				EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */,
+				EBC6A799298F599D00090A19 /* UserRow.swift in Sources */,
 				EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */,
+				EBC6A797298F492400090A19 /* ResizedImage.swift in Sources */,
 				EB4DE400298C644200C4418C /* GreenButtons.swift in Sources */,
+				EBC6A793298EF38900090A19 /* PayView.swift in Sources */,
+				EBC6A79D298F64E900090A19 /* ProfileView.swift in Sources */,
 				EB4DE40E298DA3C900C4418C /* HomeView.swift in Sources */,
 				EB00B01E2988A2B700D696E7 /* YoMoolaApp.swift in Sources */,
 				EB4DE3EE298B341000C4418C /* Color.swift in Sources */,
 				EB4DE407298C8D6A00C4418C /* FullScreenViews.swift in Sources */,
 				EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */,
+				EBC6A795298F476F00090A19 /* ViewExtensions.swift in Sources */,
 				EB4DE3FC298C21EF00C4418C /* Properties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

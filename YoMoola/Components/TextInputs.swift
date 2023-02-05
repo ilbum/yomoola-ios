@@ -24,7 +24,7 @@ struct TextFieldTheme: ViewModifier {
     }
 }
 
-struct TextFieldBordered: View {
+struct TextFieldBorderedGray: View {
     var labelText: String
     @Binding var inputString: String
     var body: some View {
@@ -33,7 +33,7 @@ struct TextFieldBordered: View {
     }
 }
 
-struct TextFieldSecureBordered: View {
+struct TextFieldSecureBorderedGray: View {
     var labelText: String
     @Binding var inputString: String
     var body: some View {
@@ -48,9 +48,9 @@ struct TextInputs_Previews: PreviewProvider {
     @State static var inputString2 = "Test string"
     static var previews: some View {
         VStack() {
-            TextFieldSecureBordered(labelText: "Label Text", inputString: $passwordString)
-            TextFieldBordered(labelText: "Label Text", inputString: $inputString1)
-            TextFieldBordered(labelText: "Label Text", inputString: $inputString2)
+            TextFieldSecureBorderedGray(labelText: "Label Text", inputString: $passwordString)
+            TextFieldBorderedGray(labelText: "Label Text", inputString: $inputString1)
+            TextFieldBorderedGray(labelText: "Label Text", inputString: $inputString2)
         }
         .padding()
     }
