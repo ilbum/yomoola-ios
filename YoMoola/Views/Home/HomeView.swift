@@ -32,10 +32,7 @@ struct HomeView: View {
     // ----------------------------------------
     var TopSection: some View {
         HStack(spacing: 15.0) {
-            Image("profile-picture")
-                .resizable()
-                .scaledToFit()
-                .frame(width: profileSize)
+            CircleImage(image: "profile-male-1", width: profileSize)
             Text("John Anderson")
                 .font(.title3)
                 .fontWeight(.bold)
@@ -140,9 +137,9 @@ struct HomeView: View {
     var CardTransactions: some View {
         VStack(spacing: 15.0) {
             TransactionEntry(type: "transfer", toWallet: "YoMoola's Wallet", amount: 50)
-            TransactionEntry(type: "transfer", toWallet: "Mark Anderson", amount: -50)
+            TransactionEntry(type: "transfer", toWallet: "YoMoola's Wallet", amount: -50)
             TransactionEntry(type: "transfer", toWallet: "YoMoola's Wallet", amount: 50)
-            TransactionEntry(type: "transfer", toWallet: "Merchant #7", amount: 50)
+            TransactionEntry(type: "transfer", toWallet: "YoMoola's Wallet", amount: -50)
         }
     }
 

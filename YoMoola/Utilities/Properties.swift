@@ -7,11 +7,15 @@
 
 import SwiftUI
 
-let balance = "$120,256.00"
+let balance = "$50.00"
 let backgroundLinearGradient = LinearGradient(gradient: Gradient(colors: [.white, .white, .white, .accentColorLight, .accentColorLight, .accentColorLight]), startPoint: .topLeading, endPoint: .bottomTrailing)
+let user_name = "John Anderson"
+let user_id = "janderson"
+let percentages = "▲  +13.25%"
+
+// Animations
 let ctaAnimationDuration = 1.0
 let screenAnimationDuration = ctaAnimationDuration * 0.33
-let percentages = "▲  +13.25%"
 
 /*
  Text Icons

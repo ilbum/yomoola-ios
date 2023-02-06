@@ -23,22 +23,26 @@ struct UserRow: View {
     }
     var body: some View {
         HStack {
-            CircleImageAccentColor(image: "logo", width: 50)
-                .padding(.trailing)
+            CircleImage(image: image, width: 65)
+                .padding(.trailing, 8.0)
             VStack(alignment: .leading) {
                 Text(name)
                     .fontWeight(.bold)
                 Text(idFromatted)
             }
+            .foregroundColor(.text)
             Spacer()
         }
+        .padding(10.0)
+        .padding(.horizontal, 10.0)
     }
 }
 
 struct UserRow_Previews: PreviewProvider {
     static var previews: some View {
-        FullScreenBackgroundView(backgroundImage: "background-1") {
-            UserRow(image: "logo", name: "YoMoola Merchant", id: "yomoola")
-        }
+        PayView()
+//        FullScreenBackgroundView(backgroundImage: "background-1") {
+//            UserRow(image: "logo", name: "YoMoola Merchant", id: "yomoola")
+//        }
     }
 }

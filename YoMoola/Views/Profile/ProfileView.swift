@@ -15,9 +15,8 @@ struct ProfileView: View {
         FullScreenBackgroundScrollView(backgroundImage: "background-2") {
             ProfileSection
                 .foregroundColor(.text)
-            WalletsSection
+            // WalletsSection
             Spacer().frame(height: spacer * 0.4)
-            
             SettingsTitle
             SettingsSection
                 .padding(.horizontal)
@@ -32,11 +31,11 @@ struct ProfileView: View {
             Spacer().frame(height: spacer)
             CircleImage(image: "profile-male-1", width: 125)
                 .padding(.bottom)
-            Text("User Name")
+            Text(user_name)
                 .foregroundColor(.accentColorDark)
                 .font(.title)
                 .fontWeight(.bold)
-            Text("yomoolaID")
+            Text("@\(user_id)")
         }
         .padding(.bottom)
     }
@@ -52,13 +51,15 @@ struct ProfileView: View {
             .padding(.leading).padding(.leading)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 10.0) {
-                    CircleImage(image: "profile-male-2", width: imageWidth)
+                    CircleImage(image: "yomoola-logo-padding-bg-green", width: imageWidth)
                         .padding(.leading).padding(.leading)
+                    CircleImage(image: "profile-male-2", width: imageWidth)
                     CircleImage(image: "profile-female-1", width: imageWidth)
                     CircleImage(image: "profile-male-3", width: imageWidth)
                     CircleImage(image: "profile-female-2", width: imageWidth)
                         .padding(.trailing).padding(.trailing)
                 }
+                .padding(.vertical, 3.0)
             }
         }
         .foregroundColor(.text)
@@ -76,7 +77,10 @@ struct ProfileView: View {
     }
     var SettingsSection: some View {
         VStack {
-            SettingsRow(image: "note.text", text: "Personal Info")
+            SettingsRow(image: "person.text.rectangle", text: "Personal Info")
+            Divider()
+            SettingsRow(image: "creditcard", text: "Payment Method")
+                .padding(.vertical, 5.0)
             Divider()
             SettingsRow(image: "bell", text: "Notifications")
         }
@@ -106,6 +110,7 @@ struct SettingsRow: View {
                 .imageScale(.large)
                 .padding(.trailing)
             Text(text)
+                .foregroundColor(.text)
             Spacer()
             Image(systemName: "chevron.right")
                 .foregroundColor(.accentColorDark)

@@ -12,45 +12,45 @@ struct PayView: View {
     @State var cameraModal = false
     @State var searchString = ""
     var body: some View {
-        List {
-            TopSection
-                .padding(.top)
-            
-            CameraSection
-                .padding()
-            
-            SearchSection
-                .padding([.horizontal, .bottom])
-            
-            SearchResults
-                .padding(.horizontal)
-        }
-        .listStyle(.plain)
-        .background(backgroundLinearGradient)
-        .scrollContentBackground(.hidden)
-        
-//        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
-//            VStack {
-//                TopSection
-//                    .padding(.top)
+//        List {
+//            TopSection
+//                .padding(.top)
 //
-//                CameraSection
-//                    .padding()
+//            CameraSection
+//                .padding()
 //
-//                SearchSection
-//                    .padding([.horizontal, .bottom])
+//            SearchSection
+//                .padding([.horizontal, .bottom])
 //
-//                SearchResults
-//                    .padding(.horizontal)
-//
-////                CameraSection
-////                    .padding(.bottom)
-////                CameraControls
-//            }
-//            .padding()
+//            SearchResults
+//                .padding(.horizontal)
 //        }
-//        .foregroundColor(.white)
-//        .background(Color.accentColor)
+//        .listStyle(.plain)
+//        .background(backgroundLinearGradient)
+//        .scrollContentBackground(.hidden)
+        
+        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
+            VStack {
+                TopSection
+                    .padding(.top)
+
+                CameraSection
+                    .padding()
+
+                SearchSection
+                    .padding([.horizontal, .bottom])
+
+                SearchResults
+                    .padding(.horizontal)
+
+//                CameraSection
+//                    .padding(.bottom)
+//                CameraControls
+            }
+            .padding()
+        }
+        .foregroundColor(.white)
+        .background(Color.accentColor)
     }
     
     // ----------------------------------------
@@ -59,8 +59,6 @@ struct PayView: View {
     var TopSection: some View {
         HStack {
             Spacer()
-            Text(Image(systemName: "creditcard.fill"))
-                .font(.title)
             Text("Pay")
                 .font(.title)
                 .fontWeight(.bold)
@@ -86,11 +84,16 @@ struct PayView: View {
         TextFieldBorderedGray(labelText: "Search for a Wallet", inputString: $searchString)
     }
     var SearchResults: some View {
-        VStack(spacing: 15) {
-            UserRow(image: "", name: "YoMoola", id: "yomoola")
-            UserRow(image: "", name: "Jason Anderson", id: "janderson99")
-            UserRow(image: "", name: "Cookies", id: "cookies")
+        VStack {
+            UserRow(image: "yomoola-logo-padding-bg-green", name: "YoMoola", id: "yomoola")
+            Divider()
+            UserRow(image: "profile-male-2", name: "Jason Anderson", id: "janderson100")
+            Divider()
+            UserRow(image: "profile-female-1", name: "Cookies", id: "cookies")
         }
+        .padding(.vertical, 10.0)
+        .background(Color.accentColorLight)
+        .cornerRadius(25)
     }
     
     var CameraControls: some View {
