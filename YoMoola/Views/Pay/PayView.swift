@@ -12,45 +12,43 @@ struct PayView: View {
     @State var cameraModal = false
     @State var searchString = ""
     var body: some View {
-//        List {
-//            TopSection
-//                .padding(.top)
-//
-//            CameraSection
-//                .padding()
-//
-//            SearchSection
-//                .padding([.horizontal, .bottom])
-//
-//            SearchResults
-//                .padding(.horizontal)
-//        }
-//        .listStyle(.plain)
-//        .background(backgroundLinearGradient)
-//        .scrollContentBackground(.hidden)
-        
-        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
-            VStack {
-                TopSection
-                    .padding(.top)
-
+        NavigationView {
+            List {
+                SearchSection
+                    .padding()
+                
                 CameraSection
                     .padding()
+                
+                HStack {
+                    Text("YoMoola Wallets")
+                        .font(.title)
+                        .padding()
+                    Spacer()
+                    Button(action: { print("TODO") }) {
+                        Text(Image(systemName: "plus"))
+                            .foregroundColor(.accentColor)
+                            .font(.title)
+                    }
+                }
 
-                SearchSection
-                    .padding([.horizontal, .bottom])
-
-                SearchResults
-                    .padding(.horizontal)
-
-//                CameraSection
-//                    .padding(.bottom)
-//                CameraControls
+                
+                NavigationLink {
+                    PayDetailView()
+                } label: {
+                    UserRow(image: "yomoola-logo-padding-bg-green", name: "YoMoola", id: "yomoola")
+                }
+                UserRow(image: "profile-male-2", name: "Kurt Hubble", id: "kurthubble")
+                UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")
+                UserRow(image: "profile-male-3", name: "Rex Cota", id: "rexelglass")
+                UserRow(image: "profile-female-2", name: "Irma Nelson", id: "irma")
             }
-            .padding()
+            .listStyle(.plain)
+            //.navigationTitle(smoothie.title)
+//            .toolbar {
+//                Text("Add Wallet")
+//            }
         }
-        .foregroundColor(.white)
-        .background(Color.accentColor)
     }
     
     // ----------------------------------------
@@ -66,22 +64,31 @@ struct PayView: View {
             Spacer()
         }
     }
+    var SearchSection: some View {
+        //TextFieldBorderedGray(labelText: "Search for a Wallet", inputString: $searchString)
+        HStack {
+            Text(Image(systemName: "magnifyingglass"))
+                .font(.title)
+                .foregroundColor(.accentColor)
+            TextField("Search for a Wallet", text: $searchString)
+        }
+    }
     var CameraSection: some View {
         Button(action: { cameraModal = true }) {
             HStack {
                 Text(Image(systemName: "qrcode"))
-                    .font(.title)
-                Text("Open Camera Modal")
+                    .font(.largeTitle)
+                    .padding(.trailing, 9.0)
+                Text("Scan a QR code")
+                    .font(.title3)
                 Spacer()
             }
         }
-        .buttonStyle(.bordered)
+        .foregroundColor(.accentColorDark)
+        //        .listRowBackground(Color.gray)
         .sheet(isPresented: $cameraModal) {
             CameraQrView()
         }
-    }
-    var SearchSection: some View {
-        TextFieldBorderedGray(labelText: "Search for a Wallet", inputString: $searchString)
     }
     var SearchResults: some View {
         VStack {

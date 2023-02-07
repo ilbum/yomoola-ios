@@ -23,18 +23,24 @@ struct UserRow: View {
     }
     var body: some View {
         HStack {
-            CircleImage(image: image, width: 65)
+            Text("")
+            CircleImageBordered(image: image, width: 50)
                 .padding(.trailing, 8.0)
             VStack(alignment: .leading) {
                 Text(name)
                     .fontWeight(.bold)
+                    .padding(.bottom, -0.1)
                 Text(idFromatted)
+                    .foregroundColor(.gray)
+                    .font(.callout)
             }
             .foregroundColor(.text)
             Spacer()
         }
         .padding(10.0)
-        .padding(.horizontal, 10.0)
+        .padding(.trailing, 10.0)
+        .listRowBackground(Color.accentColorLight)
+        // .listRowBackground(Color(uiColor: UIColor.clear))
     }
 }
 

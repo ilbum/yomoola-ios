@@ -92,7 +92,7 @@ struct FullScreenBackgroundScrollView<Content: View>: View {
                     // Pushes out to edges of frame
                     HStack { Spacer() }
                 }
-                .foregroundColor(.white)
+                //.foregroundColor(.white)
                 .edgesIgnoringSafeArea(.all)
             }
         }

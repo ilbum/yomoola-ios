@@ -32,7 +32,7 @@ struct HomeView: View {
     // ----------------------------------------
     var TopSection: some View {
         HStack(spacing: 15.0) {
-            CircleImage(image: "profile-male-1", width: profileSize)
+            CircleImageBordered(image: "profile-male-1", width: profileSize)
             Text("John Anderson")
                 .font(.title3)
                 .fontWeight(.bold)

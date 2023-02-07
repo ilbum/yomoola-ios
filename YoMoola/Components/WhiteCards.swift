@@ -13,12 +13,9 @@ struct WhiteCard<Content: View>: View {
     }
     var content: () -> Content
     var body: some View {
-        HStack {
-            content()
-                .padding()
-        }
+        content()
         .background(.white)
-        .cornerRadius(20.0)
+        .cornerRadius(cardCornerRadius)
     }
 }
 
@@ -31,20 +28,63 @@ struct WhiteCardButton<Content: View>: View {
     var content: () -> Content
     var body: some View {
         Button(action: action) {
-            WhiteCard {
+            WhiteCardHStack {
                 content()
             }
         }
     }
 }
 
-struct WhiteCardShadow<Content: View>: View {
+struct WhiteCardHStack<Content: View>: View {
     init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
     }
     var content: () -> Content
     var body: some View {
         WhiteCard {
+            HStack {
+                content()
+                    .padding()
+            }
+        }
+    }
+}
+
+struct WhiteCardHStackShadow<Content: View>: View {
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+    var content: () -> Content
+    var body: some View {
+        WhiteCardHStack {
+            content()
+        }
+        .shadow(color: .gray.opacity(0.4), radius: 4.5, x: 0.0, y: 3.5)
+    }
+}
+
+struct WhiteCardVStack<Content: View>: View {
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+    var content: () -> Content
+    var body: some View {
+        WhiteCard {
+            VStack {
+                content()
+                    .padding()
+            }
+        }
+    }
+}
+
+struct WhiteCardVStackShadow<Content: View>: View {
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+    var content: () -> Content
+    var body: some View {
+        WhiteCardVStack {
             content()
         }
         .shadow(color: .gray.opacity(0.4), radius: 4.5, x: 0.0, y: 3.5)
@@ -60,7 +100,7 @@ struct WhiteCardShadowButton<Content: View>: View {
     var content: () -> Content
     var body: some View {
         Button(action: action) {
-            WhiteCardShadow {
+            WhiteCardHStackShadow {
                 content()
             }
         }
@@ -75,13 +115,13 @@ struct WhiteCards_Previews: PreviewProvider {
                 Text("I am a button")
                     .font(.title)
             }
-            WhiteCardShadow {
+            WhiteCardHStackShadow {
                 Image("Social-Apple")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 40.0)
             }
-            WhiteCard {
+            WhiteCardHStack {
                 Text("Hello this is no shadow")
             }
             WhiteCardButton(action: { print("TODO home bell") }) {

@@ -26,6 +26,8 @@
 		EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */; };
 		EB4DE413298E073400C4418C /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4DE412298E073400C4418C /* WalletView.swift */; };
 		EB4DE415298E269E00C4418C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4DE414298E269E00C4418C /* Assets.xcassets */; };
+		EB8400EE2990BC8100DC57A2 /* PayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */; };
+		EB8400F0299217EB00DC57A2 /* JournalKeyboardSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */; };
 		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
 		EBC6A795298F476F00090A19 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A794298F476F00090A19 /* ViewExtensions.swift */; };
 		EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ImageComponents.swift */; };
@@ -74,6 +76,8 @@
 		EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkGreenButton.swift; sourceTree = "<group>"; };
 		EB4DE412298E073400C4418C /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		EB4DE414298E269E00C4418C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDetailView.swift; sourceTree = "<group>"; };
+		EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalKeyboardSaveButton.swift; sourceTree = "<group>"; };
 		EBC6A792298EF38900090A19 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		EBC6A794298F476F00090A19 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		EBC6A796298F492400090A19 /* ImageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponents.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				EB4DE406298C8D6A00C4418C /* FullScreenViews.swift */,
 				EB4DE3FF298C644200C4418C /* GreenButtons.swift */,
 				EBC6A796298F492400090A19 /* ImageComponents.swift */,
+				EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */,
 				EB4DE3F9298B728F00C4418C /* TextInputs.swift */,
 				EBC6A798298F599D00090A19 /* UserRow.swift */,
 				EB4DE40A298C92CA00C4418C /* WhiteCards.swift */,
@@ -240,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC6A792298EF38900090A19 /* PayView.swift */,
+				EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -385,12 +391,14 @@
 			files = (
 				EB4DE3F3298B6E7D00C4418C /* WelcomeView.swift in Sources */,
 				EB4DE413298E073400C4418C /* WalletView.swift in Sources */,
+				EB8400EE2990BC8100DC57A2 /* PayDetailView.swift in Sources */,
 				EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */,
 				EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */,
 				EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */,
 				EBC6A799298F599D00090A19 /* UserRow.swift in Sources */,
 				EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */,
 				EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */,
+				EB8400F0299217EB00DC57A2 /* JournalKeyboardSaveButton.swift in Sources */,
 				EB4DE400298C644200C4418C /* GreenButtons.swift in Sources */,
 				EBC6A793298EF38900090A19 /* PayView.swift in Sources */,
 				EBC6A79D298F64E900090A19 /* ProfileView.swift in Sources */,

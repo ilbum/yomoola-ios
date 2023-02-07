@@ -24,6 +24,8 @@ extension Color {
     public static var text: Color {
         Color("TextColor", bundle: nil)
     }
+    
+    public static var textGray: Color {
+        Color("TextGrayColor", bundle: nil)
+    }
 }
-
-

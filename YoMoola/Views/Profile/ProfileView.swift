@@ -29,7 +29,7 @@ struct ProfileView: View {
     var ProfileSection: some View {
         VStack(spacing: 7.0) {
             Spacer().frame(height: spacer)
-            CircleImage(image: "profile-male-1", width: 125)
+            CircleImageBordered(image: "profile-male-1", width: 125)
                 .padding(.bottom)
             Text(user_name)
                 .foregroundColor(.accentColorDark)
@@ -51,12 +51,12 @@ struct ProfileView: View {
             .padding(.leading).padding(.leading)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 10.0) {
-                    CircleImage(image: "yomoola-logo-padding-bg-green", width: imageWidth)
+                    CircleImageBordered(image: "yomoola-logo-padding-bg-green", width: imageWidth)
                         .padding(.leading).padding(.leading)
-                    CircleImage(image: "profile-male-2", width: imageWidth)
-                    CircleImage(image: "profile-female-1", width: imageWidth)
-                    CircleImage(image: "profile-male-3", width: imageWidth)
-                    CircleImage(image: "profile-female-2", width: imageWidth)
+                    CircleImageBordered(image: "profile-male-2", width: imageWidth)
+                    CircleImageBordered(image: "profile-female-1", width: imageWidth)
+                    CircleImageBordered(image: "profile-male-3", width: imageWidth)
+                    CircleImageBordered(image: "profile-female-2", width: imageWidth)
                         .padding(.trailing).padding(.trailing)
                 }
                 .padding(.vertical, 3.0)

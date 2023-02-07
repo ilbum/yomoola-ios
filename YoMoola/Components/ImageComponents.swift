@@ -37,6 +37,15 @@ struct CircleImage: View {
     var body: some View {
         ResizedImage(image: image, width: width)
             .clipShape(Circle())
+    }
+}
+
+struct CircleImageBordered: View {
+    var image: String
+    var width: CGFloat
+    var body: some View {
+        ResizedImage(image: image, width: width)
+            .clipShape(Circle())
             .overlay(Circle().stroke(Color.white, lineWidth: 4.0))
             //.shadow(radius: 7.0)
     }
@@ -49,7 +58,7 @@ struct ImageComponents_Previews: PreviewProvider {
             VStack(spacing: 50) {
                 ResizedImage(image: "logo", width: width)
                 CircleImageAccentColor(image: "logo", width: width)
-                CircleImage(image: "profile-male-1", width: width)
+                CircleImageBordered(image: "profile-male-1", width: width)
             }
         }
     }

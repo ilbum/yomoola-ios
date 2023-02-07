@@ -12,6 +12,7 @@ let backgroundLinearGradient = LinearGradient(gradient: Gradient(colors: [.white
 let user_name = "John Anderson"
 let user_id = "janderson"
 let percentages = "▲  +13.25%"
+let cardCornerRadius: CGFloat = 20.0
 
 // Animations
 let ctaAnimationDuration = 1.0
