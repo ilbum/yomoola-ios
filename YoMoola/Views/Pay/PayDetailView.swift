@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// TODO: round up at the purchase the difference and add the credit card fee
+
 private let iconSize: CGFloat = 40
 private let coinSize: CGFloat = 30
 
@@ -22,12 +24,31 @@ struct PayDetailView: View {
     @State var coinAmount: String = "50"
     @State var creditCardModal = false
     @State var payReceiveBool: Bool = true
-    var costDifference: String {
-        let coinAmountInt = Int(coinAmount) ?? 0
-        return String(requestedAmount - coinAmountInt)
+    var costDifference: Float {
+        let coinAmountInt = Float(coinAmount) ?? 0
+        return invoiceTotal - coinAmountInt
     }
+    var costDifferenceString: String { "$\(String(costDifference))" }
+    var invoiceItems = [
+        InvoiceItem(quantity: 1, name: "Raspberry Gummies", price: 8.75),
+        InvoiceItem(quantity: 1, name: "Marionberry Gummies", price: 8.75),
+        InvoiceItem(quantity: 2, name: "Maui Wowie All-In-One", price: 25.50),
+        InvoiceItem(quantity: 1, name: "Green Crack All-In-One", price: 25.50)
+    ]
     var invoiceNumber = "8271"
-    var requestedAmount: Int = 75
+    var invoiceSubtotal: Float {
+        var subTotal: Float = 0.0
+        for invoiceItem in invoiceItems { subTotal += invoiceItem.price }
+        return subTotal
+    }
+    var invoiceTaxes: Float {
+        return invoiceSubtotal * 0.25
+    }
+    var invoiceTaxesString: String { "$\(String(invoiceTaxes))" }
+    var invoiceTotal: Float {
+        return invoiceSubtotal + invoiceTaxes
+    }
+    var invoiceTotalString: String { "$\(String(invoiceTotal))" }
     
     // ----------------------------------------
     // ## body
@@ -106,10 +127,14 @@ struct PayDetailView: View {
                 // --- VStack invoice items
                 // TODO: invoice item object
                 VStack(alignment: .leading, spacing: 8) {
-                    ItemInvoice(quantity: 1, itemName: "Raspberry Gummies", cost: 8.75)
-                    ItemInvoice(quantity: 1, itemName: "Marionberry Gummies", cost: 8.75)
-                    ItemInvoice(quantity: 2, itemName: "Maui Wowie All-In-One", cost: 25.50)
-                    ItemInvoice(quantity: 1, itemName: "Green Crack All-In-One", cost: 25.50)
+                    ForEach(invoiceItems) { InvoiceItem in
+                        InvoiceItemRow(quantity: InvoiceItem.quantity, itemName: InvoiceItem.name, cost: InvoiceItem.price)
+                    }
+                    HStack {
+                        Text("Regulatory & State Taxes")
+                        Spacer()
+                        Text(invoiceTaxesString)
+                    }
                 }
                 .foregroundColor(.textGray)
                 //.padding(.leading)
@@ -125,7 +150,7 @@ struct PayDetailView: View {
             HStack {
                 CircleImage(image: "coin-icon-USDC", width: coinSize)
                 Spacer()
-                Text(String(requestedAmount))
+                Text(invoiceTotalString)
                     .foregroundColor(.white)
                     .fontWeight(.medium)
                     .font(.title2)
@@ -204,15 +229,6 @@ struct PayDetailView: View {
                 .font(.title2)
                 .foregroundColor(.text)
             
-            // --- Charge the difference
-            HStack {
-                Text("Charge the difference:")
-                Text("$\(costDifference)")
-                    .foregroundColor(.accentColorDark)
-                    .fontWeight(.bold)
-                    .font(.title3)
-            }
-            
             // --- Credit Card Modal
             Button(action: { creditCardModal.toggle() }) {
                 HStack(spacing: 10.0) {
@@ -230,6 +246,15 @@ struct PayDetailView: View {
             }
             .sheet(isPresented: $creditCardModal) {
                 Text("Credit Card Selection")
+            }
+            
+            // --- Charge the difference
+            HStack {
+                Text("Purchase the difference:")
+                Text(costDifferenceString)
+                    .foregroundColor(.accentColorDark)
+                    .fontWeight(.bold)
+                    .font(.title3)
             }
             
             // --- Agree to charge my credit card
@@ -262,7 +287,7 @@ struct PayDetailView: View {
             .padding(.vertical, 6.0)
             .padding(.horizontal)
             .padding(.horizontal)
-            .background(Capsule().fill(Color.accentColor))
+            .background(Capsule().fill(agreeToDifference ? Color.accentColor : Color.gray))
             Spacer()
         }
     }
@@ -274,36 +299,7 @@ struct PayDetailView_Previews: PreviewProvider {
     }
 }
 
-/*
- TODO
- - change the value on the bottom if the USDC value changes.
- 
- 1 × Raspberry Gummies
- 8.75
-
- 1 × Marionberry Gummies
- 8.75
-
- 1 × Sour Apple Gummies
- 8.75
-
- 1 × Maui Wowie All In One
- 25.50
-
- 1 × Green Crack Live Resin All-In-One
- 25.50
-
- Subtotal
- $77.25
-
- Tax
- $22.75
-
- Total
- $100.00
- */
-
-struct ItemInvoice: View {
+struct InvoiceItemRow: View {
     var quantity: Int
     var itemName: String
     var cost: Float
@@ -319,3 +315,8 @@ struct ItemInvoice: View {
         .foregroundColor(.textGray)
     }
 }
+
+// TODO: calculates off the subtotal information
+//struct Taxes: View {
+//    
+//}

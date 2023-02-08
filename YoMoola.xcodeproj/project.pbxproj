@@ -28,6 +28,7 @@
 		EB4DE415298E269E00C4418C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4DE414298E269E00C4418C /* Assets.xcassets */; };
 		EB8400EE2990BC8100DC57A2 /* PayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */; };
 		EB8400F0299217EB00DC57A2 /* JournalKeyboardSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */; };
+		EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */; };
 		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
 		EBC6A795298F476F00090A19 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A794298F476F00090A19 /* ViewExtensions.swift */; };
 		EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ImageComponents.swift */; };
@@ -78,6 +79,7 @@
 		EB4DE414298E269E00C4418C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDetailView.swift; sourceTree = "<group>"; };
 		EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalKeyboardSaveButton.swift; sourceTree = "<group>"; };
+		EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
 		EBC6A792298EF38900090A19 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		EBC6A794298F476F00090A19 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		EBC6A796298F492400090A19 /* ImageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponents.swift; sourceTree = "<group>"; };
@@ -133,7 +135,7 @@
 		EB00B01C2988A2B700D696E7 /* YoMoola */ = {
 			isa = PBXGroup;
 			children = (
-				EB4DE3EF298B353100C4418C /* Components */,
+				EB8400F1299322E100DC57A2 /* Model */,
 				EB4DE3EB298B33FC00C4418C /* Utilities */,
 				EB4DE3F4298B71B600C4418C /* Views */,
 				EB00B01F2988A2B700D696E7 /* ContentView.swift */,
@@ -174,6 +176,7 @@
 		EB4DE3EB298B33FC00C4418C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				EB4DE3EF298B353100C4418C /* Components */,
 				EB4DE3EC298B340300C4418C /* Extensions */,
 				EB4DE3FB298C21EF00C4418C /* Properties.swift */,
 			);
@@ -239,6 +242,14 @@
 				EB4DE412298E073400C4418C /* WalletView.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		EB8400F1299322E100DC57A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EBC6A791298EF37900090A19 /* Pay */ = {
@@ -408,6 +419,7 @@
 				EB4DE407298C8D6A00C4418C /* FullScreenViews.swift in Sources */,
 				EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */,
 				EBC6A795298F476F00090A19 /* ViewExtensions.swift in Sources */,
+				EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */,
 				EB4DE3FC298C21EF00C4418C /* Properties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
