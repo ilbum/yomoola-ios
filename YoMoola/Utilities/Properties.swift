@@ -11,7 +11,7 @@ let balance = "$50.00"
 let backgroundLinearGradient = LinearGradient(gradient: Gradient(colors: [.white, .white, .white, .accentColorLight, .accentColorLight, .accentColorLight]), startPoint: .topLeading, endPoint: .bottomTrailing)
 let user_name = "John Anderson"
 let user_id = "janderson"
-let percentages = "▲  +13.25%"
+let percentages = "▲  +0.00%"
 let cardCornerRadius: CGFloat = 20.0
 
 // Animations

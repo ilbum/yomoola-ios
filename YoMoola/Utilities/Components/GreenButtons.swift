@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+struct ActionButton: View {
+    var action: () -> Void
+    var text: String
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Text(text)
+                    .font(.subheadline)
+            }
+            .padding(.horizontal, 15.0)
+            .padding(.vertical, 13.0)
+            .background(Capsule().fill(Color.accentColorDim))
+        }
+    }
+}
+
 struct BackChevron: View {
     var action: () -> Void
     var body: some View {

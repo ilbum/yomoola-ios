@@ -1,5 +1,7 @@
 # TODO
 
-Finish the home view transactions \
-- currency
-- color for negative or positive money
+- QR Camera
+- Remove wallet view, home connect to wallet view
+- Credit Card Model
+  - connect both Pay and Profile view
+- Payment success view 

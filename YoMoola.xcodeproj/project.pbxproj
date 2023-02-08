@@ -29,8 +29,8 @@
 		EB8400EE2990BC8100DC57A2 /* PayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */; };
 		EB8400F0299217EB00DC57A2 /* JournalKeyboardSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */; };
 		EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */; };
+		EB8400F729935EE500DC57A2 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F629935EE500DC57A2 /* MarketView.swift */; };
 		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
-		EBC6A795298F476F00090A19 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A794298F476F00090A19 /* ViewExtensions.swift */; };
 		EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ImageComponents.swift */; };
 		EBC6A799298F599D00090A19 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A798298F599D00090A19 /* UserRow.swift */; };
 		EBC6A79D298F64E900090A19 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A79C298F64E900090A19 /* ProfileView.swift */; };
@@ -80,8 +80,8 @@
 		EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDetailView.swift; sourceTree = "<group>"; };
 		EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalKeyboardSaveButton.swift; sourceTree = "<group>"; };
 		EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
+		EB8400F629935EE500DC57A2 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
 		EBC6A792298EF38900090A19 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
-		EBC6A794298F476F00090A19 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		EBC6A796298F492400090A19 /* ImageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponents.swift; sourceTree = "<group>"; };
 		EBC6A798298F599D00090A19 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
 		EBC6A79C298F64E900090A19 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -187,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				EB4DE3ED298B341000C4418C /* Color.swift */,
-				EBC6A794298F476F00090A19 /* ViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -214,7 +213,6 @@
 				EB4DE3F5298B71C100C4418C /* Onboarding */,
 				EBC6A791298EF37900090A19 /* Pay */,
 				EBC6A79B298F64D600090A19 /* Profile */,
-				EB4DE411298E071C00C4418C /* Wallet */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,7 +229,9 @@
 		EB4DE40C298DA3AB00C4418C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EB4DE411298E071C00C4418C /* Wallet */,
 				EB4DE40D298DA3C900C4418C /* HomeView.swift */,
+				EB8400F629935EE500DC57A2 /* MarketView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -418,9 +418,9 @@
 				EB4DE3EE298B341000C4418C /* Color.swift in Sources */,
 				EB4DE407298C8D6A00C4418C /* FullScreenViews.swift in Sources */,
 				EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */,
-				EBC6A795298F476F00090A19 /* ViewExtensions.swift in Sources */,
 				EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */,
 				EB4DE3FC298C21EF00C4418C /* Properties.swift in Sources */,
+				EB8400F729935EE500DC57A2 /* MarketView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

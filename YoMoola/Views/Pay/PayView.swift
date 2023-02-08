@@ -44,10 +44,6 @@ struct PayView: View {
                 UserRow(image: "profile-female-2", name: "Irma Nelson", id: "irma")
             }
             .listStyle(.plain)
-            //.navigationTitle(smoothie.title)
-//            .toolbar {
-//                Text("Add Wallet")
-//            }
         }
     }
     
@@ -65,7 +61,6 @@ struct PayView: View {
         }
     }
     var SearchSection: some View {
-        //TextFieldBorderedGray(labelText: "Search for a Wallet", inputString: $searchString)
         HStack {
             Text(Image(systemName: "magnifyingglass"))
                 .font(.title)

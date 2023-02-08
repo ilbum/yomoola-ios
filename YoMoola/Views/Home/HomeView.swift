@@ -12,19 +12,21 @@ import SwiftUI
 // ----------------------------------------
 struct HomeView: View {
     var body: some View {
-        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
-            VStack {
-                TopSection
-                    .padding(.top)
-                BalanceSection
-                // Card Content
-                Card
-                    .padding(.top)
+        NavigationView {
+            FullScreenBackgroundScrollView(backgroundImage: "background-1") {
+                VStack {
+                    TopSection
+                        .padding(.top)
+                    BalanceSection
+                    // Card Content
+                    Card
+                        .padding(.top)
+                }
+                .padding(.vertical)
             }
-            .padding(.vertical)
+            .foregroundColor(.white)
+            .background(Color.accentColor)
         }
-        .foregroundColor(.white)
-        .background(Color.accentColor)
     }
     
     // ----------------------------------------
@@ -93,13 +95,15 @@ struct HomeView: View {
         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
     }
     var CardTitle: some View {
-        HStack {
-            Text("Market")
-                .font(.title2)
-                .fontWeight(.bold)
-            Spacer()
-            Text("See All \(Image(systemName: "chevron.right"))")
-                .foregroundColor(.accentColor)
+        NavigationLink(destination: MarketView()) {
+            HStack {
+                Text("Market")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                Spacer()
+                Text("See All \(Image(systemName: "chevron.right"))")
+                    .foregroundColor(.accentColor)
+            }
         }
     }
     var CardCharts: some View {

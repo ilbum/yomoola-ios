@@ -26,7 +26,8 @@ struct PayDetailView: View {
     @State var payReceiveBool: Bool = true
     var costDifference: Float {
         let coinAmountInt = Float(coinAmount) ?? 0
-        return invoiceTotal - coinAmountInt
+        
+        return (invoiceTotal + (invoiceTotal * 0.0255)) - coinAmountInt
     }
     var costDifferenceString: String { "$\(String(costDifference))" }
     var invoiceItems = [
@@ -48,7 +49,7 @@ struct PayDetailView: View {
     var invoiceTotal: Float {
         return invoiceSubtotal + invoiceTaxes
     }
-    var invoiceTotalString: String { "$\(String(invoiceTotal))" }
+    var invoiceTotalString: String { String(invoiceTotal) }
     
     // ----------------------------------------
     // ## body
