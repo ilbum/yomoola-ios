@@ -24,19 +24,19 @@ struct ContentView: View {
             SignIn(onboardStepNumber: $onboardStepNumber)
         } else {
             TabView(selection: $selection) {
-                HomeView()
-                    .tabItem { Label("Home", systemImage: "house") }
-                    .tag(Tab.home)
-//                WalletView()
-//                    .tabItem { Label("Wallet", systemImage: "greetingcard") }
-//                    .tag(Tab.wallet)
-                PayView()
+                NavigationView {
+                    HomeView()
+                        .tabItem { Label("Home", systemImage: "house") }
+                        .tag(Tab.home)
+                }
+                NavigationView {
+                    PayView()
+                }
                     .tabItem { Label("Pay", systemImage: "creditcard") }
                     .tag(Tab.pay)
-//                HomeView()
-//                    .tabItem { Label("Transactions", systemImage: "arrow.left.arrow.right") }
-//                    .tag(Tab.transactions)
-                ProfileView()
+                NavigationView {
+                    ProfileView()
+                }
                     .tabItem { Label("Profile", systemImage: "person") }
                     .tag(Tab.profile)
             }

@@ -39,28 +39,22 @@ struct DarkGreenCardButton<Content: View>: View {
 }
 
 struct HomeDarkGreenCardCtaButtons: View {
-//    init(action: @escaping () -> Void, ) {
-//        self.action = action
-//        self.content = content
-//    }
     var action: () -> Void
     var icon: String
     var text: String
     var body: some View {
-        Button(action: action) {
-            DarkGreenCard {
-                VStack(spacing: 5.0) {
-                    Text(Image(systemName: icon))
-                        .font(.title3)
-                        .foregroundColor(Color.accentColor)
-                    Text(text)
-                        .font(.caption)
-                        .foregroundColor(.white)
-                }
-                .padding(10.0)
+        DarkGreenCard {
+            VStack(spacing: 5.0) {
+                Text(Image(systemName: icon))
+                    .font(.title3)
+                    .foregroundColor(Color.accentColor)
+                Text(text)
+                    .font(.caption)
+                    .foregroundColor(.white)
             }
-            .padding(.trailing)
+            .padding(10.0)
         }
+        .padding(.trailing)
     }
 }
 

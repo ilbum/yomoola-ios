@@ -12,39 +12,37 @@ struct PayView: View {
     @State var cameraModal = false
     @State var searchString = ""
     var body: some View {
-        NavigationView {
-            List {
-                SearchSection
+        List {
+            SearchSection
+                .padding()
+            
+            CameraSection
+                .padding()
+            
+            HStack {
+                Text("YoMoola Wallets")
+                    .font(.title)
                     .padding()
-                
-                CameraSection
-                    .padding()
-                
-                HStack {
-                    Text("YoMoola Wallets")
+                Spacer()
+                Button(action: { print("TODO") }) {
+                    Text(Image(systemName: "plus"))
+                        .foregroundColor(.accentColor)
                         .font(.title)
-                        .padding()
-                    Spacer()
-                    Button(action: { print("TODO") }) {
-                        Text(Image(systemName: "plus"))
-                            .foregroundColor(.accentColor)
-                            .font(.title)
-                    }
                 }
-
-                
-                NavigationLink {
-                    PayDetailView()
-                } label: {
-                    UserRow(image: "yomoola-logo-padding-bg-green", name: "YoMoola", id: "yomoola")
-                }
-                UserRow(image: "profile-male-2", name: "Kurt Hubble", id: "kurthubble")
-                UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")
-                UserRow(image: "profile-male-3", name: "Rex Cota", id: "rexelglass")
-                UserRow(image: "profile-female-2", name: "Irma Nelson", id: "irma")
             }
-            .listStyle(.plain)
+            
+            
+            NavigationLink {
+                PayDetailView()
+            } label: {
+                UserRow(image: "yomoola-logo-padding-bg-green", name: "YoMoola", id: "yomoola")
+            }
+            UserRow(image: "profile-male-2", name: "Kurt Hubble", id: "kurthubble")
+            UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")
+            UserRow(image: "profile-male-3", name: "Rex Cota", id: "rexelglass")
+            UserRow(image: "profile-female-2", name: "Irma Nelson", id: "irma")
         }
+        .listStyle(.plain)
     }
     
     // ----------------------------------------

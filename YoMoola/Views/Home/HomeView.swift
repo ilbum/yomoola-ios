@@ -12,21 +12,24 @@ import SwiftUI
 // ----------------------------------------
 struct HomeView: View {
     var body: some View {
-        NavigationView {
-            FullScreenBackgroundScrollView(backgroundImage: "background-1") {
-                VStack {
-                    TopSection
-                        .padding(.top)
-                    BalanceSection
-                    // Card Content
-                    Card
-                        .padding(.top)
-                }
-                .padding(.vertical)
+        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
+            VStack {
+                TopSection
+                    .padding(.top).padding(.top)
+                BalanceSection
+                
+                // --- Card Content
+                // Market
+                // Charts
+                // Wallet
+                // Transactions
+                Card
+                    .padding(.top)
             }
-            .foregroundColor(.white)
-            .background(Color.accentColor)
+            .padding(.vertical)
         }
+        .foregroundColor(.white)
+        .background(Color.accentColor)
     }
     
     // ----------------------------------------
@@ -71,13 +74,17 @@ struct HomeView: View {
     // ----------------------------------------
     var Card: some View {
         VStack {
-            CardTitle
+            // --- Market
+            MarketRow
                 .padding().padding([.top, .horizontal])
+            // --- Charts
             CardCharts
                 .padding(.bottom)
-            CardCta
+            // --- Wallet
+            WalletRow
                 .padding(.bottom)
             
+            // --- Transactions
             VStack {
                 CardTransactionTitle
                     .padding(.bottom)
@@ -94,7 +101,7 @@ struct HomeView: View {
         .background(Color.accentColorLight)
         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
     }
-    var CardTitle: some View {
+    var MarketRow: some View {
         NavigationLink(destination: MarketView()) {
             HStack {
                 Text("Market")
@@ -116,15 +123,23 @@ struct HomeView: View {
             }
         }
     }
-    var CardCta: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(alignment: .top, spacing: 0) {
-                HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "cube", text: "Deposit")
+    var WalletRow: some View {
+        NavigationLink(destination: WalletView()) {
+            VStack(alignment: .leading) {
+                Text("Wallet")
+                    .font(.title2)
+                    .fontWeight(.bold)
                     .padding(.leading).padding(.leading)
-                HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "paperplane", text: "Transfer")
-                HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "chart.xyaxis.line", text: "Exchange")
-                HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "dollarsign", text: "Withdraw")
-                    .padding(.trailing).padding(.trailing)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .top, spacing: 0) {
+                        HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "cube", text: "Deposit")
+                            .padding(.leading).padding(.leading)
+                        HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "paperplane", text: "Transfer")
+                        HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "chart.xyaxis.line", text: "Exchange")
+                        HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "dollarsign", text: "Withdraw")
+                            .padding(.trailing).padding(.trailing)
+                    }
+                }
             }
         }
     }
@@ -146,7 +161,7 @@ struct HomeView: View {
             TransactionEntry(type: "transfer", toWallet: "YoMoola's Wallet", amount: -50)
         }
     }
-
+    
     // ----------------------------------------
     // ## Constants
     // ----------------------------------------
