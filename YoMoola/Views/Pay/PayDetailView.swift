@@ -50,6 +50,7 @@ struct PayDetailView: View {
         return invoiceSubtotal + invoiceTaxes
     }
     var invoiceTotalString: String { String(invoiceTotal) }
+    var walletName = "Wallet Name"
     
     // ----------------------------------------
     // ## body
@@ -86,7 +87,7 @@ struct PayDetailView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {
-                    Text("Transfer")
+                    Text(walletName)
                         .foregroundColor(.accentColorDark)
                         .fontWeight(.bold)
                         .font(.title3)
@@ -105,7 +106,7 @@ struct PayDetailView: View {
             // --- Wallet Name
             HStack(spacing: 10.0) {
                 CircleImage(image: "yomoola-logo-padding-bg-green", width: iconSize * 1.25)
-                Text("Wallet Name")
+                Text(walletName)
                     .font(.title2)
             }
         }
@@ -237,7 +238,7 @@ struct PayDetailView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: iconSize)
-                    Text("Visa **** 2988")
+                    Text("Visa ****2988")
                     Spacer()
                 }
                 .foregroundColor(.accentColor)
@@ -250,7 +251,7 @@ struct PayDetailView: View {
             }
             
             // --- Charge the difference
-            HStack {
+            VStack {
                 Text("Purchase the difference:")
                 Text(costDifferenceString)
                     .foregroundColor(.accentColorDark)
@@ -264,12 +265,13 @@ struct PayDetailView: View {
                     Text(Image(systemName: agreeToDifference ? "checkmark.square.fill" : "square"))
                         .foregroundColor(.accentColorDark)
                         .font(.subheadline)
-                    Text("Agree to YoMoola charging Visa **** 2988")
+                    Text("Agree to YoMoola charging credit card Visa ****2988. This includes a 2.75% coin purchasing fee.")
                         .foregroundColor(.accentColorDark)
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                     Spacer()
                 }
+                .padding(.bottom)
             }
         }
         .foregroundColor(.text)

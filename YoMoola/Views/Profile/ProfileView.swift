@@ -31,11 +31,11 @@ struct ProfileView: View {
             Spacer().frame(height: spacer)
             CircleImageBordered(image: "profile-male-1", width: 125)
                 .padding(.bottom)
-            Text(user_name)
+            Text(userName)
                 .foregroundColor(.accentColorDark)
                 .font(.title)
                 .fontWeight(.bold)
-            Text("@\(user_id)")
+            Text("@\(userId)")
         }
         .padding(.bottom)
     }

@@ -7,7 +7,20 @@
 
 import SwiftUI
 
+/*
+ TODO: Update view
+ - Padding?
+ - Title --> Transfer
+ -
+ */
+
 struct PayView: View {
+    init() {
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color.accentColorDark)]
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.accentColorDark)]
+    }
     // popup for the camera
     @State var cameraModal = false
     @State var searchString = ""
@@ -15,22 +28,24 @@ struct PayView: View {
         List {
             SearchSection
                 .padding()
+            //.listRowSeparator(.hidden)
             
             CameraSection
-                .padding()
+                .padding(.horizontal)
+                .padding(.top, 5.0)
+            //.listRowSeparator(.hidden)
             
             HStack {
-                Text("YoMoola Wallets")
+                CircleImage(image: "yomoola-logo-padding-bg-green", width: 55)
+                    .padding(.trailing, 12)
+                Text("Wallets")
+                    .foregroundColor(.accentColorDark)
                     .font(.title)
-                    .padding()
+                    .overlay(Rectangle().frame(height: 1).offset(y: 4), alignment: .bottom).foregroundColor(.accentColorDim)
                 Spacer()
-                Button(action: { print("TODO") }) {
-                    Text(Image(systemName: "plus"))
-                        .foregroundColor(.accentColor)
-                        .font(.title)
-                }
             }
-            
+            .padding(.horizontal)
+            .listRowSeparator(.hidden)
             
             NavigationLink {
                 PayDetailView()
@@ -41,8 +56,29 @@ struct PayView: View {
             UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")
             UserRow(image: "profile-male-3", name: "Rex Cota", id: "rexelglass")
             UserRow(image: "profile-female-2", name: "Irma Nelson", id: "irma")
+            UserRow(image: "profile-male-2", name: "Kurt Hubble", id: "kurthubble")
+            UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")
         }
         .listStyle(.plain)
+        .navigationTitle("Transfer")
+        .toolbar {
+            ToolbarItemGroup(placement: .primaryAction) {
+                Button(action: { print("TODO refresh") }) {
+                    Label {
+                        Text("Help")
+                    } icon: {
+                        Image(systemName: "questionmark.circle")
+                    }
+                }
+                Button(action: { print("TODO refresh") }) {
+                    Label {
+                        Text("Refresh")
+                    } icon: {
+                        Image(systemName: "clock.arrow.circlepath")
+                    }
+                }
+            }
+        }
     }
     
     // ----------------------------------------
@@ -59,12 +95,7 @@ struct PayView: View {
         }
     }
     var SearchSection: some View {
-        HStack {
-            Text(Image(systemName: "magnifyingglass"))
-                .font(.title)
-                .foregroundColor(.accentColor)
-            TextField("Search for a Wallet", text: $searchString)
-        }
+        SearchInput(searchString: $searchString, labelText: "Search for a Wallet")
     }
     var CameraSection: some View {
         Button(action: { cameraModal = true }) {
@@ -78,7 +109,6 @@ struct PayView: View {
             }
         }
         .foregroundColor(.accentColorDark)
-        //        .listRowBackground(Color.gray)
         .sheet(isPresented: $cameraModal) {
             CameraQrView()
         }

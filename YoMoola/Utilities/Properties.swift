@@ -7,18 +7,14 @@
 
 import SwiftUI
 
-let balance = "$50.00"
-let backgroundLinearGradient = LinearGradient(gradient: Gradient(colors: [.white, .white, .white, .accentColorLight, .accentColorLight, .accentColorLight]), startPoint: .topLeading, endPoint: .bottomTrailing)
-let user_name = "John Anderson"
-let user_id = "janderson"
-let percentages = "▲  +0.00%"
-let cardCornerRadius: CGFloat = 20.0
-
 // Animations
 let ctaAnimationDuration = 1.0
 let screenAnimationDuration = ctaAnimationDuration * 0.33
 
-/*
- Text Icons
- ▲▼
- */
+// General
+let balance = "$50.00"
+let backgroundLinearGradient = LinearGradient(gradient: Gradient(colors: [.white, .white, .white, .accentColorLight, .accentColorLight, .accentColorLight]), startPoint: .topLeading, endPoint: .bottomTrailing)
+let userName = "John Anderson"
+let userId = "janderson"
+let walletPercentChange: Float = 0.00
+let cardCornerRadius: CGFloat = 20.0

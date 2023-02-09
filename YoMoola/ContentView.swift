@@ -16,7 +16,7 @@ struct ContentView: View {
         case profile
     }
     @State private var onboardStepNumber = 3
-    @State private var selection: Tab = .home
+    @State private var selection: Tab = .pay
     var body: some View {
         if onboardStepNumber == 0 {
             WelcomeView(onboardStepNumber: $onboardStepNumber)
@@ -24,11 +24,10 @@ struct ContentView: View {
             SignIn(onboardStepNumber: $onboardStepNumber)
         } else {
             TabView(selection: $selection) {
-                NavigationView {
-                    HomeView()
-                        .tabItem { Label("Home", systemImage: "house") }
-                        .tag(Tab.home)
-                }
+                // bug prevents me from putting it here
+                HomeView()
+                    .tabItem { Label("Home", systemImage: "house") }
+                    .tag(Tab.home)
                 NavigationView {
                     PayView()
                 }

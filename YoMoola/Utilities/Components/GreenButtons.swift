@@ -18,7 +18,7 @@ struct ActionButton: View {
             }
             .padding(.horizontal, 15.0)
             .padding(.vertical, 13.0)
-            .background(Capsule().fill(Color.accentColorDim))
+            .background(Capsule().fill(Color.accentColorDark))
         }
     }
 }

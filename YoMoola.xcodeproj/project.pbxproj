@@ -30,6 +30,8 @@
 		EB8400F0299217EB00DC57A2 /* JournalKeyboardSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */; };
 		EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */; };
 		EB8400F729935EE500DC57A2 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F629935EE500DC57A2 /* MarketView.swift */; };
+		EB8400F929945E4200DC57A2 /* PercentageChangeCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */; };
+		EB8400FB2994931A00DC57A2 /* SearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FA2994931A00DC57A2 /* SearchInput.swift */; };
 		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
 		EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ImageComponents.swift */; };
 		EBC6A799298F599D00090A19 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A798298F599D00090A19 /* UserRow.swift */; };
@@ -81,6 +83,8 @@
 		EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalKeyboardSaveButton.swift; sourceTree = "<group>"; };
 		EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
 		EB8400F629935EE500DC57A2 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageChangeCapsule.swift; sourceTree = "<group>"; };
+		EB8400FA2994931A00DC57A2 /* SearchInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInput.swift; sourceTree = "<group>"; };
 		EBC6A792298EF38900090A19 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		EBC6A796298F492400090A19 /* ImageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponents.swift; sourceTree = "<group>"; };
 		EBC6A798298F599D00090A19 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
@@ -202,6 +206,8 @@
 				EB4DE3F9298B728F00C4418C /* TextInputs.swift */,
 				EBC6A798298F599D00090A19 /* UserRow.swift */,
 				EB4DE40A298C92CA00C4418C /* WhiteCards.swift */,
+				EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */,
+				EB8400FA2994931A00DC57A2 /* SearchInput.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -408,6 +414,7 @@
 				EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */,
 				EBC6A799298F599D00090A19 /* UserRow.swift in Sources */,
 				EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */,
+				EB8400FB2994931A00DC57A2 /* SearchInput.swift in Sources */,
 				EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */,
 				EB8400F0299217EB00DC57A2 /* JournalKeyboardSaveButton.swift in Sources */,
 				EB4DE400298C644200C4418C /* GreenButtons.swift in Sources */,
@@ -421,6 +428,7 @@
 				EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */,
 				EB4DE3FC298C21EF00C4418C /* Properties.swift in Sources */,
 				EB8400F729935EE500DC57A2 /* MarketView.swift in Sources */,
+				EB8400F929945E4200DC57A2 /* PercentageChangeCapsule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

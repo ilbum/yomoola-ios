@@ -15,14 +15,13 @@ struct MarketView: View {
     var body: some View {
         List {
             SearchSection
-                //.padding([.horizontal, .top])
                 .padding(.horizontal)
                 .listRowSeparator(.hidden)
-            Actions
+            ActionsRow
                 .padding(.bottom, 5.0)
-            CryptoRow(imageString: "coin-icon-BTC", name: "Bitcoin", ticker: "BTC", value: "23,247.90", percentChange: 0.01)
-            CryptoRow(imageString: "coin-icon-ETH", name: "Ethereum", ticker: "ETH", value: "1,679.53", percentChange: 0.55)
-            CryptoRow(imageString: "coin-icon-USDC", name: "USD Coin", ticker: "USDC", value: "1.00", percentChange: 0.00)
+            CryptoMarketRow(imageString: "coin-icon-USDC", name: "USD Coin", ticker: "USDC", value: "1.00", percentChange: 0.00)
+            CryptoMarketRow(imageString: "coin-icon-ETH", name: "Ethereum", ticker: "ETH", value: "1,679.53", percentChange: 0.55)
+            CryptoMarketRow(imageString: "coin-icon-BTC", name: "Bitcoin", ticker: "BTC", value: "23,247.90", percentChange: 0.01)
         }
         .listStyle(.inset)
         .navigationBarTitleDisplayMode(.inline)
@@ -60,14 +59,9 @@ struct MarketView: View {
     // ## Components
     // ----------------------------------------
     var SearchSection: some View {
-        HStack {
-            Text(Image(systemName: "magnifyingglass"))
-                .font(.title3)
-                .foregroundColor(.accentColor)
-            TextField("Search", text: $searchString)
-        }
+        SearchInput(searchString: $searchString, labelText: "Search")
     }
-    var Actions: some View {
+    var ActionsRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 10.0) {
                 MarketActionButton(action: { print("") }, text: "All Coins")
@@ -90,19 +84,12 @@ struct MarketView_Previews: PreviewProvider {
 // ----------------------------------------
 // # MarketView Components
 // ----------------------------------------
-struct CryptoRow: View {
+struct CryptoMarketRow: View {
     var imageString: String
     var name: String
     var ticker: String
     var value: String
     var percentChange: Float
-    var changeString: String {
-        if percentChange >= 0 {
-            return "▲ +%\(percentChange)"
-        } else {
-            return "▼ -%\(abs(percentChange))"
-        }
-    }
     private let imageWidth: CGFloat = 50.0
     var body: some View {
         HStack(spacing: 15.0) {
@@ -121,11 +108,7 @@ struct CryptoRow: View {
             VStack(alignment: .trailing, spacing: 4.0) {
                 Text("$\(value)")
                     .padding(.horizontal, 6.0)
-                Text(changeString)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 10.0)
-                    .padding(.vertical, 1.0)
-                    .background(Capsule().fill(percentChange >= 0 ? Color.accentColor : Color.red))
+                PercentageChangeCapsule(percentChange: percentChange)
             }
         }
         .foregroundColor(.text)

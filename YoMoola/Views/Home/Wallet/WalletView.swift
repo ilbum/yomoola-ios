@@ -9,71 +9,46 @@ import SwiftUI
 
 struct WalletView: View {
     var body: some View {
-        NavigationView {
-            FullScreenBackgroundScrollView(backgroundImage: "background-1") {
-                TopSection
-                    .padding(.top)
-                    .padding(.top)
-                BalanceSection
-                    .padding(.bottom, 15.0)
-                Actions
-                    .padding(.bottom)
-                WhiteCardButton(action: { print("TODO home bell") }) {
-                    HStack {
-                        Image("coin-icon-USDC")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 40.0)
-                            .padding(.trailing, 10.0)
-                        VStack(alignment: .leading) {
-                            Text("USD Coin")
-                                .fontWeight(.bold)
-                            Text("USDC")
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                        }
-                        Spacer()
-                        VStack(alignment: .trailing) {
-                            Text("$1.00")
-                            Spacer()
-                            HStack {
-                                Text("▲ 0.00%")
-                            }
-                            .font(.footnote)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 6)
-                            .background(Capsule().fill(Color.accentColor))
-                        }
-                    }
-                    .foregroundColor(.text)
+        List {
+            CurrentBalance
+                //.padding(.vertical, 5.0)
+                .listRowSeparator(.hidden)
+            ActionsRow
+                .padding(.bottom, 5.0)
+            CryptoMarketRow(imageString: "coin-icon-USDC", name: "USD Coin", ticker: "$1 × 50", value: "50.00", percentChange: 0.00)
+//            CryptoMarketRow(imageString: "coin-icon-ETH", name: "Ethereum", ticker: "$1,679.53 × 0", value: "0.00", percentChange: 0.55)
+//            CryptoMarketRow(imageString: "coin-icon-BTC", name: "Bitcoin", ticker: "$23,247.90 × 0", value: "0.00", percentChange: 0.01)
+        }
+        .listStyle(.inset)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    Text("Wallet")
+                        .foregroundColor(.accentColorDark)
+                        .fontWeight(.bold)
+                        .font(.title3)
+                    
                 }
-                .padding(.horizontal)
             }
-            .foregroundColor(.white)
-            .background(Color.accentColor)
+        }
+        .toolbar {
+            Button(action: { print("TODO refresh") }) {
+                Label {
+                    Text("Refresh")
+                } icon: {
+                    Image(systemName: "clock.arrow.circlepath")
+                }
+            }
         }
     }
     
     // ----------------------------------------
     // # Components
     // ----------------------------------------
-    var TopSection: some View {
-        HStack(spacing: 15.0) {
-            Text("Wallet")
-                .font(.title2)
-                .fontWeight(.bold)
-            Spacer()
-            WhiteCardButton(action: { print("TODO home bell") }) {
-                Text(Image(systemName: "clock.arrow.circlepath"))
-                    .font(.title3)
-            }
-            .foregroundColor(.accentColorDark)
-        }
-        .padding()
-    }
-    var BalanceSection: some View {
+    var CurrentBalance: some View {
         HStack {
+            Text("")
             Spacer()
             VStack {
                 Text("Current Balance")
@@ -82,21 +57,24 @@ struct WalletView: View {
                 Text(balance)
                     .font(.title)
                     .fontWeight(.bold)
+                // Percentage Change
+                PercentageChangeCapsule(percentChange: walletPercentChange)
             }
             Spacer()
+            Text("")
         }
+        .foregroundColor(.text)
         .padding()
-        .background(RoundedRectangle(cornerRadius: 25, style: .continuous).fill(Color.black.opacity(0.09)))
-        .padding(.horizontal)
+        .background(RoundedRectangle(cornerRadius: 20.0).fill(Color.accentColorLight))
     }
-    var Actions: some View {
+    var ActionsRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(alignment: .top, spacing: 10.0) {
-                ActionButton(action: { print("") }, text: "Deposit")
+                WalletActionButton(action: { print("") }, text: "Deposit")
                     .padding(.leading)
-                ActionButton(action: { print("") }, text: "Transfer")
-                ActionButton(action: { print("") }, text: "Exchange")
-                ActionButton(action: { print("") }, text: "Withdraw")
+                WalletActionButton(action: { print("") }, text: "Transfer")
+                WalletActionButton(action: { print("") }, text: "Exchange")
+                WalletActionButton(action: { print("") }, text: "Withdraw")
                     .padding(.trailing)
             }
         }
@@ -106,5 +84,17 @@ struct WalletView: View {
 struct WalletView_Previews: PreviewProvider {
     static var previews: some View {
         WalletView()
+    }
+}
+
+// ----------------------------------------
+// # MarketView Components
+// ----------------------------------------
+private struct WalletActionButton: View {
+    var action: () -> Void
+    var text: String
+    var body: some View {
+        ActionButton(action: action, text: text)
+            .foregroundColor(.white)
     }
 }

@@ -12,24 +12,31 @@ import SwiftUI
 // ----------------------------------------
 struct HomeView: View {
     var body: some View {
-        FullScreenBackgroundScrollView(backgroundImage: "background-1") {
-            VStack {
-                TopSection
-                    .padding(.top).padding(.top)
-                BalanceSection
-                
-                // --- Card Content
-                // Market
-                // Charts
-                // Wallet
-                // Transactions
-                Card
-                    .padding(.top)
+        /*
+         --- Please note ---
+            The "NavigationView" placement is inconsistent. The
+            "TabNavigator" does not render the icon when placed in "ContentView"
+         */
+        NavigationView {
+            FullScreenBackgroundScrollView(backgroundImage: "background-1") {
+                VStack {
+                    TopSection
+                        .padding(.top).padding(.top)
+                    BalanceSection
+                    
+                    // --- Card Content
+                    // Market
+                    // Charts
+                    // Wallet
+                    // Transactions
+                    Card
+                        .padding(.top)
+                }
+                .padding(.vertical)
             }
-            .padding(.vertical)
+            .foregroundColor(.white)
+            .background(Color.accentColor)
         }
-        .foregroundColor(.white)
-        .background(Color.accentColor)
     }
     
     // ----------------------------------------
@@ -59,13 +66,7 @@ struct HomeView: View {
                 .font(.title)
                 .fontWeight(.bold)
             // Percentage Change
-            Group {
-                Text(percentages)
-                    .foregroundColor(.accentColor)
-                    .padding(.horizontal)
-                    .padding(.vertical, 4.0)
-            }
-            .background(Capsule())
+            PercentageChangeCapsuleWhite(percentChange: walletPercentChange)
         }
     }
     
@@ -82,6 +83,7 @@ struct HomeView: View {
                 .padding(.bottom)
             // --- Wallet
             WalletRow
+            WalletActionsRow
                 .padding(.bottom)
             
             // --- Transactions
@@ -103,14 +105,7 @@ struct HomeView: View {
     }
     var MarketRow: some View {
         NavigationLink(destination: MarketView()) {
-            HStack {
-                Text("Market")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                Spacer()
-                Text("See All \(Image(systemName: "chevron.right"))")
-                    .foregroundColor(.accentColor)
-            }
+            TitleAndSeeAllRow(title: "Market")
         }
     }
     var CardCharts: some View {
@@ -126,32 +121,33 @@ struct HomeView: View {
     var WalletRow: some View {
         NavigationLink(destination: WalletView()) {
             VStack(alignment: .leading) {
-                Text("Wallet")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.leading).padding(.leading)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(alignment: .top, spacing: 0) {
-                        HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "cube", text: "Deposit")
-                            .padding(.leading).padding(.leading)
-                        HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "paperplane", text: "Transfer")
-                        HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "chart.xyaxis.line", text: "Exchange")
-                        HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "dollarsign", text: "Withdraw")
-                            .padding(.trailing).padding(.trailing)
-                    }
+                TitleAndSeeAllRow(title: "Wallet")
+                    .padding(.horizontal).padding(.horizontal)
+            }
+        }
+    }
+    var WalletActionsRow: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(alignment: .top, spacing: 0) {
+                NavigationLink(destination: WalletView()) {
+                    HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "cube", text: "Deposit")
+                        .padding(.leading).padding(.leading)
+                }
+                NavigationLink(destination: WalletView()) {
+                    HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "paperplane", text: "Transfer")
+                }
+                NavigationLink(destination: WalletView()) {
+                    HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "chart.xyaxis.line", text: "Exchange")
+                }
+                NavigationLink(destination: WalletView()) {
+                    HomeDarkGreenCardCtaButtons(action: { print("") }, icon: "dollarsign", text: "Withdraw")
+                        .padding(.trailing).padding(.trailing)
                 }
             }
         }
     }
     var CardTransactionTitle: some View {
-        HStack {
-            Text("Recent Transactions")
-                .font(.title3)
-                .fontWeight(.bold)
-            Spacer()
-            Text("See All \(Image(systemName: "chevron.right"))")
-                .foregroundColor(.accentColor)
-        }
+        TitleAndSeeAllRow(title: "Recent Transactions")
     }
     var CardTransactions: some View {
         VStack(spacing: 15.0) {
@@ -185,6 +181,20 @@ private struct HomeViewChartImage: View {
             .resizable()
             .scaledToFit()
             .frame(width: 225.0)
+    }
+}
+
+private struct TitleAndSeeAllRow: View {
+    var title: String
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.title2)
+                .fontWeight(.bold)
+            Spacer()
+            Text("See All \(Image(systemName: "chevron.right"))")
+                .foregroundColor(.accentColor)
+        }
     }
 }
 
