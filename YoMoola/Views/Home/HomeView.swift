@@ -24,7 +24,7 @@ struct HomeView: View {
                         .padding(.top).padding(.top)
                     BalanceSection
                     
-                    // --- Card Content
+                    // ----- Card Content
                     // Market
                     // Charts
                     // Wallet
@@ -75,18 +75,18 @@ struct HomeView: View {
     // ----------------------------------------
     var Card: some View {
         VStack {
-            // --- Market
+            // ----- Market
             MarketRow
                 .padding().padding([.top, .horizontal])
-            // --- Charts
+            // ----- Charts
             CardCharts
                 .padding(.bottom)
-            // --- Wallet
+            // ----- Wallet
             WalletRow
             WalletActionsRow
                 .padding(.bottom)
             
-            // --- Transactions
+            // ----- Transactions
             VStack {
                 CardTransactionTitle
                     .padding(.bottom)

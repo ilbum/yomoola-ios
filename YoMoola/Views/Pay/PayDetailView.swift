@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// TODO: round up at the purchase the difference and add the credit card fee
-
 private let iconSize: CGFloat = 40
 private let coinSize: CGFloat = 30
 
@@ -26,38 +24,37 @@ struct PayDetailView: View {
     @State var activeCreditCard: CreditCardItem
     
     // ---- Properties
-    @FocusState var isInputActive: Bool
-    @State var agreeToDifference = false
-    @State var coinAmount: String = "50"
-    @State var creditCardModal = false
-    @State var payReceiveBool: Bool = true
-    var costDifference: Float {
+    @FocusState private var isInputActive: Bool
+    @State private var agreeToDifference = false
+    @State private var coinAmount: String = "50"
+    @State private var creditCardModal = false
+    @State private var paySuccessBool = false // TODO: update this post view done
+    private var costDifference: Float {
         let coinAmountInt = Float(coinAmount) ?? 0
-        
         return (invoiceTotal + (invoiceTotal * 0.0255)) - coinAmountInt
     }
-    var costDifferenceString: String { "$\(String(costDifference))" }
-    var invoiceItems = [
+    private var costDifferenceString: String { "$\(String(costDifference))" }
+    private var invoiceItems = [
         InvoiceItem(quantity: 1, name: "Raspberry Gummies", price: 8.75),
         InvoiceItem(quantity: 1, name: "Marionberry Gummies", price: 8.75),
         InvoiceItem(quantity: 2, name: "Maui Wowie All-In-One", price: 25.50),
         InvoiceItem(quantity: 1, name: "Green Crack All-In-One", price: 25.50)
     ]
-    var invoiceNumber = "8271"
-    var invoiceSubtotal: Float {
+    private var invoiceNumber = "8271"
+    private var invoiceSubtotal: Float {
         var subTotal: Float = 0.0
         for invoiceItem in invoiceItems { subTotal += invoiceItem.price }
         return subTotal
     }
-    var invoiceTaxes: Float {
+    private var invoiceTaxes: Float {
         return invoiceSubtotal * 0.25
     }
-    var invoiceTaxesString: String { "$\(String(invoiceTaxes))" }
-    var invoiceTotal: Float {
+    private var invoiceTaxesString: String { "$\(String(invoiceTaxes))" }
+    private var invoiceTotal: Float {
         return invoiceSubtotal + invoiceTaxes
     }
-    var invoiceTotalString: String { String(invoiceTotal) }
-    var walletName = "Merchant Name"
+    private var invoiceTotalString: String { String(invoiceTotal) }
+    private var walletName = "Merchant Name"
     
     // ----------------------------------------
     // ## body
@@ -65,28 +62,14 @@ struct PayDetailView: View {
     var body: some View {
         FullScreenBackgroundScrollView(backgroundImage: "background-2") {
             Spacer().frame(height: 100)
-            
             // ----------------------------------------
             // ### main content
             // ----------------------------------------
-            WhiteCardVStack {
-                VStack(alignment: .leading) {
-                    MerchantInformation
-                    InvoiceDetails
-                    RequestedCoinAmount
-                    Divider()
-                        .padding(.vertical)
-                    WithdrawFrom
-                    Divider()
-                        .padding(.vertical)
-                    TransferDetails
-                    PayButton
-                }
-                .padding(10)
+            if paySuccessBool {
+                PaySuccessCard
+            } else {
+                PayCard
             }
-            .padding()
-            .padding(.horizontal)
-            
             Spacer().frame(height: 150)
         }
         .foregroundColor(.text)
@@ -105,25 +88,65 @@ struct PayDetailView: View {
     }
     
     // ----------------------------------------
-    // ## Components
+    // ## Subviews
     // ----------------------------------------
-    // --- MerchantInformation
-    var MerchantInformation: some View {
-        VStack(alignment: .leading) {
-            // --- Wallet Name
-            HStack(spacing: 10.0) {
-                CircleImage(image: "merchant-1", width: iconSize * 1.25)
-                Text(walletName)
-                    .font(.title2)
+    var PayCard: some View {
+        PayDetailWhiteCard {
+            MerchantInformation
+            InvoiceDetails
+            RequestedCoinAmount
+            Divider()
+                .padding(.vertical)
+            WithdrawFrom
+            Divider()
+                .padding(.vertical)
+            TransferDetails
+            Pay
+        }
+    }
+    var PaySuccessCard: some View {
+        /*
+         Merchant Name
+         Invoice Details
+         Coins transferred
+         Credit Card Charge
+         
+         next card, my wallet
+         */
+        VStack {
+            PayDetailWhiteCard {
+                //TitleUnderline(title: "Paid \(Image(systemName: "checkmark.circle.fill"))")
+                HStack {
+                    Spacer()
+                    Text("\(Image(systemName: "checkmark"))")
+                        .foregroundColor(.accentColorDark)
+                        .fontWeight(.bold)
+                        .font(.largeTitle)
+                        .padding(.horizontal)
+                        .overlay(Rectangle().frame(height: 1).offset(y: 10), alignment: .bottom).foregroundColor(.accentColorDark)
+                    Spacer()
+                }
+                InvoiceDetails
+                RequestedCoinAmount
+            }
+            PayDetailWhiteCard {
+                TitleUnderline(title: "Transfer Details")
+                CoinsTransferredRow
+                CreditCardChargeRow
             }
         }
     }
-    // --- InvoiceDetails
+    
+    // ----------------------------------------
+    // MARK: PayCard Components
+    // PaySuccessCard shares some of these views
+    // ----------------------------------------
+    // ----- InvoiceDetails
     var InvoiceDetails: some View {
         HStack {
             Spacer().frame(width: 5)
             VStack(alignment: .leading, spacing: 8) {
-                // --- HStack Invoice Number
+                // ----- HStack Invoice Number
                 HStack {
                     Text("Invoice")
                         .font(.title2)
@@ -133,7 +156,7 @@ struct PayDetailView: View {
                         .font(.title2)
                         .fontWeight(.medium)
                 }
-                // --- VStack invoice items
+                // ----- VStack invoice items
                 // TODO: invoice item object
                 VStack(alignment: .leading, spacing: 8) {
                     ForEach(invoiceItems) { InvoiceItem in
@@ -152,34 +175,89 @@ struct PayDetailView: View {
         }
         .padding(.vertical)
     }
-    var RequestedCoinAmount: some View {
+    // ----- MerchantInformation
+    var MerchantInformation: some View {
         VStack(alignment: .leading) {
-            Text("Transfer Total")
-                .font(.title3)
-            HStack {
-                CircleImage(image: "coin-icon-USDC", width: coinSize)
-                Spacer()
-                Text(invoiceTotalString)
-                    .foregroundColor(.white)
-                    .fontWeight(.medium)
+            // ----- Wallet Name
+            HStack(spacing: 10.0) {
+                CircleImage(image: "merchant-1", width: iconSize * 1.25)
+                Text(walletName)
                     .font(.title2)
-                    .multilineTextAlignment(.trailing)
-                    .fixedSize(horizontal: true, vertical: true)
-                    .keyboardType(.numberPad)
             }
-            .padding(.vertical, 10)
-            .padding(.horizontal, 15)
-            .background(Capsule().fill(Color.accentColorDark.opacity(0.5)))
+        }
+    }
+    // ----- RequestedCoinAmount
+    var RequestedCoinAmount: some View {
+        TransferCapsule(title: "Transfer Total", coinString: invoiceTotalString)
+    }
+    // ----- Pay
+    var Pay: some View {
+        HStack {
+            Spacer()
+            if agreeToDifference {
+                Button {
+                    withAnimation(Animation.easeIn(duration: screenAnimationDuration)) {
+                        paySuccessBool = true
+                    }
+                } label: {
+                    PayButton(color: Color.accentColor)
+                }
+            } else {
+                PayButton(color: Color.gray)
+            }
+            Spacer()
         }
         .padding(.bottom)
     }
-    // --- WithdrawFrom
+    // ----- TransferDetails
+    var TransferDetails: some View {
+        VStack(spacing: 15) {
+            Text("Transfer Details")
+                .fontWeight(.medium)
+                .font(.title2)
+                .foregroundColor(.text)
+            
+            // ----- Credit Card Modal
+            Button(action: { creditCardModal.toggle() }) {
+                CreditCardRow(creditCard: activeCreditCard)
+            }
+            .sheet(isPresented: $creditCardModal) {
+                CreditCardModal(activeCreditCard: $activeCreditCard, dataCreditCards: dataCreditCards)
+            }
+            
+            // ----- Charge the difference
+            VStack {
+                Text("Purchase the difference:")
+                Text(costDifferenceString)
+                    .foregroundColor(.accentColorDark)
+                    .fontWeight(.bold)
+                    .font(.title3)
+            }
+            
+            // ----- Agree to charge my credit card
+            Button(action: { agreeToDifference.toggle() }) {
+                HStack(alignment: .top) {
+                    Text(Image(systemName: agreeToDifference ? "checkmark.square.fill" : "square"))
+                        .foregroundColor(.accentColorDark)
+                        .font(.subheadline)
+                    Text("Agree to YoMoola charging credit card \(dataCreditCards[0].type) \(dataCreditCards[0].displayNumber). This includes a 2.75% coin purchasing fee.")
+                        .foregroundColor(.accentColorDark)
+                        .font(.subheadline)
+                        .multilineTextAlignment(.leading)
+                    Spacer()
+                }
+                .padding(.bottom)
+            }
+        }
+        .foregroundColor(.text)
+    }
+    // ----- WithdrawFrom
     var WithdrawFrom: some View {
         VStack(alignment: .leading) {
-            // --- Withdraw from
+            // ----- Withdraw from
             Text("Withdraw from")
                 .font(.title3)
-            // --- Select the coin
+            // ----- Select the coin
             HStack(spacing: 10.0) {
                 CircleImage(image: "coin-icon-USDC", width: iconSize)
                 Text("USDC")
@@ -191,7 +269,7 @@ struct PayDetailView: View {
             .padding()
             .background(Capsule().fill(Color.accentColorLight))
             .padding(.bottom)
-            // --- Input Amount
+            // ----- Input Amount
             HStack {
                 CircleImage(image: "coin-icon-USDC", width: coinSize)
                 Spacer()
@@ -217,12 +295,12 @@ struct PayDetailView: View {
                 Capsule(style: .continuous)
                     .stroke(Color.accentColorDark, style: StrokeStyle(lineWidth: 3))
             )
-            // --- Total Balance
+            // ----- Total Balance
             HStack {
                 Spacer()
                 Text("My Total Balance:")
                     .foregroundColor(.text)
-                    //.underline()
+                //.underline()
                 Text("$50")
                     .foregroundColor(.accentColorDark)
                     .fontWeight(.bold)
@@ -230,65 +308,26 @@ struct PayDetailView: View {
             }
         }
     }
-    // --- TransferDetails
-    var TransferDetails: some View {
-        VStack(spacing: 15) {
-            Text("Transfer Details")
-                .fontWeight(.medium)
-                .font(.title2)
-                .foregroundColor(.text)
-            
-            // --- Credit Card Modal
-            Button(action: { creditCardModal.toggle() }) {
-                CreditCardRow(creditCard: activeCreditCard)
-            }
-            .sheet(isPresented: $creditCardModal) {
-                CreditCardModal(activeCreditCard: $activeCreditCard, dataCreditCards: dataCreditCards)
-            }
-            
-            // --- Charge the difference
-            VStack {
-                Text("Purchase the difference:")
-                Text(costDifferenceString)
-                    .foregroundColor(.accentColorDark)
-                    .fontWeight(.bold)
-                    .font(.title3)
-            }
-            
-            // --- Agree to charge my credit card
-            Button(action: { agreeToDifference.toggle() }) {
-                HStack(alignment: .top) {
-                    Text(Image(systemName: agreeToDifference ? "checkmark.square.fill" : "square"))
-                        .foregroundColor(.accentColorDark)
-                        .font(.subheadline)
-                    Text("Agree to YoMoola charging credit card \(dataCreditCards[0].type) \(dataCreditCards[0].displayNumber). This includes a 2.75% coin purchasing fee.")
-                        .foregroundColor(.accentColorDark)
-                        .font(.subheadline)
-                        .multilineTextAlignment(.leading)
-                    Spacer()
-                }
-                .padding(.bottom)
-            }
-        }
-        .foregroundColor(.text)
+    // ----------------------------------------
+    // MARK: PaySuccessCard Components
+    // ----------------------------------------
+    var CoinsTransferredRow: some View {
+        TransferCapsule(title: "Coins Transferred", coinString: coinAmount)
+            .padding(.top)
     }
-    var PayButton: some View {
-        HStack {
-            Spacer()
-            Button(action: { print("TODO pay workflow") }) {
-                HStack {
-                    Text("Pay")
-                        .foregroundColor(.white)
-                        .fontWeight(.medium)
-                        .font(.title2)
+    var CreditCardChargeRow: some View {
+        VStack {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text(activeCreditCard.name)
+                    Text(activeCreditCard.type + " " + activeCreditCard.displayNumber)
                 }
+                Spacer()
+                Text("$\(String(costDifference))")
             }
-            .padding(.vertical, 6.0)
-            .padding(.horizontal)
-            .padding(.horizontal)
-            .background(Capsule().fill(agreeToDifference ? Color.accentColor : Color.gray))
-            Spacer()
+            .foregroundColor(.accentColorDark)
         }
+        .padding(.bottom)
     }
 }
 
@@ -305,23 +344,6 @@ struct PayDetailView_Previews: PreviewProvider {
 // ----------------------------------------
 // # PayDetailView Components
 // ----------------------------------------
-struct InvoiceItemRow: View {
-    var quantity: Int
-    var itemName: String
-    var cost: Float
-    var total: String {
-        "$\(String(Float(quantity) * cost))"
-    }
-    var body: some View {
-        HStack {
-            Text("\(String(quantity)) x \(itemName)")
-            Spacer()
-            Text(total)
-        }
-        .foregroundColor(.textGray)
-    }
-}
-
 struct CreditCardModal: View {
     @Environment(\.dismiss) private var dismiss
     // ---- Parameters
@@ -350,7 +372,7 @@ struct CreditCardModal: View {
                     }
                 }
             }
-            .navigationTitle("Credit Cards")
+            .navigationTitle("Payment Method")
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button(action: { dismiss() }) {
@@ -360,5 +382,97 @@ struct CreditCardModal: View {
                 }
             }
         }
+    }
+}
+
+private struct InvoiceItemRow: View {
+    var quantity: Int
+    var itemName: String
+    var cost: Float
+    var total: String {
+        "$\(String(Float(quantity) * cost))"
+    }
+    var body: some View {
+        HStack {
+            Text("\(String(quantity)) x \(itemName)")
+            Spacer()
+            Text(total)
+        }
+        .foregroundColor(.textGray)
+    }
+}
+
+private struct PayButton: View {
+    var color: Color
+    var body: some View {
+        HStack {
+            Text("Pay")
+                .foregroundColor(.white)
+                .fontWeight(.medium)
+                .font(.title2)
+        }
+        .padding(.vertical, 6.0)
+        .padding(.horizontal)
+        .padding(.horizontal)
+        .background(Capsule().fill(color))
+    }
+}
+
+private struct PayDetailWhiteCard<Content: View>: View {
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+    var content: () -> Content
+    var body: some View {
+        WhiteCardVStack {
+            VStack(alignment: .leading) {
+                content()
+            }
+            .padding(10)
+        }
+        .padding()
+        .padding(.horizontal)
+    }
+}
+
+private struct TitleUnderline: View {
+    var title: String
+    var body: some View {
+        HStack {
+            Spacer()
+            Text(title)
+                .foregroundColor(.accentColorDark)
+                .fontWeight(.bold)
+                .font(.title)
+                .padding(.horizontal)
+                .overlay(Rectangle().frame(height: 1).offset(y: 10), alignment: .bottom).foregroundColor(.accentColorDark)
+            Spacer()
+        }
+    }
+}
+
+private struct TransferCapsule: View {
+    var title: String
+    var coinString: String
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(title)
+                .font(.title3)
+            HStack {
+                CircleImage(image: "coin-icon-USDC", width: coinSize)
+                Spacer()
+                Text(coinString)
+                    .foregroundColor(.white)
+                    .fontWeight(.medium)
+                    .font(.title2)
+                    .multilineTextAlignment(.trailing)
+                    .fixedSize(horizontal: true, vertical: true)
+                    .keyboardType(.numberPad)
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal, 15)
+            .background(Capsule().fill(Color.accentColorDark.opacity(0.5)))
+        }
+        .padding(.bottom)
     }
 }

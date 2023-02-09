@@ -7,6 +7,7 @@
 - Search row component ✓
 - update PayView ✓
 - Credit Card Model ✓
-  - connect both Pay and Profile view
-- Payment success view 
+  - connect both Pay and Profile view ✓
+- Payment success view ✓
 - QR Camera
+- Profile additional views

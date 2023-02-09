@@ -11,6 +11,13 @@ private let spacer: CGFloat = 90
 private let imageWidth: CGFloat = 70.0
 
 struct ProfileView: View {
+    init(dataCreditCards: [CreditCardItem]) {
+        self.dataCreditCards = dataCreditCards
+        _activeCreditCard = .init(initialValue: dataCreditCards[0])
+    }
+    var dataCreditCards: [CreditCardItem]
+    @State var activeCreditCard: CreditCardItem
+    @State var creditCardModal = false
     var body: some View {
         FullScreenBackgroundScrollView(backgroundImage: "background-2") {
             ProfileSection
@@ -79,8 +86,13 @@ struct ProfileView: View {
         VStack {
             SettingsRow(image: "person.text.rectangle", text: "Personal Info")
             Divider()
-            SettingsRow(image: "creditcard", text: "Payment Method")
-                .padding(.vertical, 5.0)
+            Button { creditCardModal.toggle() } label: {
+                SettingsRow(image: "creditcard", text: "Payment Method")
+                    .padding(.vertical, 5.0)
+            }
+            .sheet(isPresented: $creditCardModal) {
+                CreditCardModal(activeCreditCard: $activeCreditCard, dataCreditCards: dataCreditCards)
+            }
             Divider()
             SettingsRow(image: "bell", text: "Notifications")
         }
@@ -92,8 +104,12 @@ struct ProfileView: View {
 }
 
 struct ProfileView_Previews: PreviewProvider {
+    static var dataCreditCards = [
+        CreditCardItem(name: "Chase", type: "Visa", number: "4024007128069472"),
+        CreditCardItem(name: "Bank of America", type: "Visa", number: "4916280452115283")
+    ]
     static var previews: some View {
-        ProfileView()
+        ProfileView(dataCreditCards: dataCreditCards)
     }
 }
 

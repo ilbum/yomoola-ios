@@ -34,7 +34,7 @@ struct ContentView: View {
                     .tabItem { Label("Pay", systemImage: "creditcard") }
                     .tag(Tab.pay)
                 NavigationView {
-                    ProfileView()
+                    ProfileView(dataCreditCards: DataCreditCards)
                 }
                     .tabItem { Label("Profile", systemImage: "person") }
                     .tag(Tab.profile)

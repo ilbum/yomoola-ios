@@ -21,7 +21,7 @@ struct CreditCardItem: Codable, Hashable, Identifiable {
     // var expirationDate: Date
     // var zipCode: String
     
-    // --- Computed Properties
+    // ----- Computed Properties
     var displayNumber: String {
         let range = number.index(number.endIndex, offsetBy: -4)..<number.endIndex
         return "****\(String(number[range]))"

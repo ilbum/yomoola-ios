@@ -56,8 +56,6 @@ struct PayView: View {
             UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")
             UserRow(image: "profile-male-3", name: "Rex Cota", id: "rexelglass")
             UserRow(image: "profile-female-2", name: "Irma Nelson", id: "irma")
-            UserRow(image: "profile-male-2", name: "Kurt Hubble", id: "kurthubble")
-            UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")
         }
         .listStyle(.plain)
         .navigationTitle("Transfer")
