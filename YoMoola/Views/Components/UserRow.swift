@@ -24,7 +24,7 @@ struct UserRow: View {
     var body: some View {
         HStack {
             Text("")
-            CircleImageBordered(image: image, width: 50)
+            CircleImage(image: image, width: 50)
                 .padding(.trailing, 8.0)
             VStack(alignment: .leading) {
                 Text(name)

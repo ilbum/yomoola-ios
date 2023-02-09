@@ -16,9 +16,16 @@ private let coinSize: CGFloat = 30
 // # PayDetailView
 // ----------------------------------------
 struct PayDetailView: View {
-    init() {
+    init(dataCreditCards: [CreditCardItem]) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.accentColorDark)]
+        self.dataCreditCards = dataCreditCards
+        _activeCreditCard = .init(initialValue: dataCreditCards[0])
     }
+    // ---- Parameters
+    var dataCreditCards: [CreditCardItem]
+    @State var activeCreditCard: CreditCardItem
+    
+    // ---- Properties
     @FocusState var isInputActive: Bool
     @State var agreeToDifference = false
     @State var coinAmount: String = "50"
@@ -50,7 +57,7 @@ struct PayDetailView: View {
         return invoiceSubtotal + invoiceTaxes
     }
     var invoiceTotalString: String { String(invoiceTotal) }
-    var walletName = "Wallet Name"
+    var walletName = "Merchant Name"
     
     // ----------------------------------------
     // ## body
@@ -105,7 +112,7 @@ struct PayDetailView: View {
         VStack(alignment: .leading) {
             // --- Wallet Name
             HStack(spacing: 10.0) {
-                CircleImage(image: "yomoola-logo-padding-bg-green", width: iconSize * 1.25)
+                CircleImage(image: "merchant-1", width: iconSize * 1.25)
                 Text(walletName)
                     .font(.title2)
             }
@@ -233,21 +240,10 @@ struct PayDetailView: View {
             
             // --- Credit Card Modal
             Button(action: { creditCardModal.toggle() }) {
-                HStack(spacing: 10.0) {
-                    Image(systemName: "creditcard.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: iconSize)
-                    Text("Visa ****2988")
-                    Spacer()
-                }
-                .foregroundColor(.accentColor)
-                .padding()
-                .background(RoundedRectangle(cornerRadius: cardCornerRadius, style: .continuous).fill(Color.accentColorLight))
-                .padding(.vertical, 5.0)
+                CreditCardRow(creditCard: activeCreditCard)
             }
             .sheet(isPresented: $creditCardModal) {
-                Text("Credit Card Selection")
+                CreditCardModal(activeCreditCard: $activeCreditCard, dataCreditCards: dataCreditCards)
             }
             
             // --- Charge the difference
@@ -265,7 +261,7 @@ struct PayDetailView: View {
                     Text(Image(systemName: agreeToDifference ? "checkmark.square.fill" : "square"))
                         .foregroundColor(.accentColorDark)
                         .font(.subheadline)
-                    Text("Agree to YoMoola charging credit card Visa ****2988. This includes a 2.75% coin purchasing fee.")
+                    Text("Agree to YoMoola charging credit card \(dataCreditCards[0].type) \(dataCreditCards[0].displayNumber). This includes a 2.75% coin purchasing fee.")
                         .foregroundColor(.accentColorDark)
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
@@ -297,11 +293,18 @@ struct PayDetailView: View {
 }
 
 struct PayDetailView_Previews: PreviewProvider {
+    static var dataCreditCards = [
+        CreditCardItem(name: "Chase", type: "Visa", number: "4024007128069472"),
+        CreditCardItem(name: "Bank of America", type: "Visa", number: "4916280452115283")
+    ]
     static var previews: some View {
-        PayDetailView()
+        PayDetailView(dataCreditCards: dataCreditCards)
     }
 }
 
+// ----------------------------------------
+// # PayDetailView Components
+// ----------------------------------------
 struct InvoiceItemRow: View {
     var quantity: Int
     var itemName: String
@@ -319,7 +322,43 @@ struct InvoiceItemRow: View {
     }
 }
 
-// TODO: calculates off the subtotal information
-//struct Taxes: View {
-//    
-//}
+struct CreditCardModal: View {
+    @Environment(\.dismiss) private var dismiss
+    // ---- Parameters
+    @Binding var activeCreditCard: CreditCardItem
+    @State var dataCreditCards: [CreditCardItem]
+    var body: some View {
+        NavigationView {
+            List {
+                ForEach(dataCreditCards) { creditCard in
+                    Button(action: {
+                        activeCreditCard = creditCard
+                        dismiss()
+                    }) {
+                        HStack(spacing: 15) {
+                            ResizedSfSymbolImage(image: "creditcard.circle.fill", width: 60)
+                                .foregroundColor(Color.accentColor)
+                            VStack(alignment: .leading, spacing: 5) {
+                                Text(creditCard.name)
+                                    .font(.title3)
+                                Text(creditCard.type)
+                            }
+                            Spacer()
+                            Text(creditCard.displayNumber)
+                        }
+                        .padding(.vertical, 6)
+                    }
+                }
+            }
+            .navigationTitle("Credit Cards")
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(action: { dismiss() }) {
+                        Image(systemName: "chevron.down")
+                            .foregroundColor(.accentColor)
+                    }
+                }
+            }
+        }
+    }
+}

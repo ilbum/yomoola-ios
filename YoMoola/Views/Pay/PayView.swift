@@ -48,9 +48,9 @@ struct PayView: View {
             .listRowSeparator(.hidden)
             
             NavigationLink {
-                PayDetailView()
+                PayDetailView(dataCreditCards: DataCreditCards)
             } label: {
-                UserRow(image: "yomoola-logo-padding-bg-green", name: "YoMoola", id: "yomoola")
+                UserRow(image: "merchant-1", name: "Merchant Name", id: "merchantid")
             }
             UserRow(image: "profile-male-2", name: "Kurt Hubble", id: "kurthubble")
             UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")

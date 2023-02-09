@@ -32,6 +32,8 @@
 		EB8400F729935EE500DC57A2 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F629935EE500DC57A2 /* MarketView.swift */; };
 		EB8400F929945E4200DC57A2 /* PercentageChangeCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */; };
 		EB8400FB2994931A00DC57A2 /* SearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FA2994931A00DC57A2 /* SearchInput.swift */; };
+		EB8400FD2994ACC800DC57A2 /* CreditCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FC2994ACC800DC57A2 /* CreditCardItem.swift */; };
+		EB8400FF2994B11900DC57A2 /* CreditCardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FE2994B11900DC57A2 /* CreditCardComponents.swift */; };
 		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
 		EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ImageComponents.swift */; };
 		EBC6A799298F599D00090A19 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A798298F599D00090A19 /* UserRow.swift */; };
@@ -85,6 +87,8 @@
 		EB8400F629935EE500DC57A2 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
 		EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageChangeCapsule.swift; sourceTree = "<group>"; };
 		EB8400FA2994931A00DC57A2 /* SearchInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInput.swift; sourceTree = "<group>"; };
+		EB8400FC2994ACC800DC57A2 /* CreditCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardItem.swift; sourceTree = "<group>"; };
+		EB8400FE2994B11900DC57A2 /* CreditCardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardComponents.swift; sourceTree = "<group>"; };
 		EBC6A792298EF38900090A19 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		EBC6A796298F492400090A19 /* ImageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponents.swift; sourceTree = "<group>"; };
 		EBC6A798298F599D00090A19 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
@@ -180,7 +184,6 @@
 		EB4DE3EB298B33FC00C4418C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				EB4DE3EF298B353100C4418C /* Components */,
 				EB4DE3EC298B340300C4418C /* Extensions */,
 				EB4DE3FB298C21EF00C4418C /* Properties.swift */,
 			);
@@ -198,16 +201,17 @@
 		EB4DE3EF298B353100C4418C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB8400FE2994B11900DC57A2 /* CreditCardComponents.swift */,
 				EB4DE40F298DBA5900C4418C /* DarkGreenButton.swift */,
 				EB4DE406298C8D6A00C4418C /* FullScreenViews.swift */,
 				EB4DE3FF298C644200C4418C /* GreenButtons.swift */,
 				EBC6A796298F492400090A19 /* ImageComponents.swift */,
 				EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */,
+				EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */,
 				EB4DE3F9298B728F00C4418C /* TextInputs.swift */,
 				EBC6A798298F599D00090A19 /* UserRow.swift */,
-				EB4DE40A298C92CA00C4418C /* WhiteCards.swift */,
-				EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */,
 				EB8400FA2994931A00DC57A2 /* SearchInput.swift */,
+				EB4DE40A298C92CA00C4418C /* WhiteCards.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -215,6 +219,7 @@
 		EB4DE3F4298B71B600C4418C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB4DE3EF298B353100C4418C /* Components */,
 				EB4DE40C298DA3AB00C4418C /* Home */,
 				EB4DE3F5298B71C100C4418C /* Onboarding */,
 				EBC6A791298EF37900090A19 /* Pay */,
@@ -253,6 +258,7 @@
 		EB8400F1299322E100DC57A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EB8400FC2994ACC800DC57A2 /* CreditCardItem.swift */,
 				EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */,
 			);
 			path = Model;
@@ -417,6 +423,7 @@
 				EB8400FB2994931A00DC57A2 /* SearchInput.swift in Sources */,
 				EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */,
 				EB8400F0299217EB00DC57A2 /* JournalKeyboardSaveButton.swift in Sources */,
+				EB8400FF2994B11900DC57A2 /* CreditCardComponents.swift in Sources */,
 				EB4DE400298C644200C4418C /* GreenButtons.swift in Sources */,
 				EBC6A793298EF38900090A19 /* PayView.swift in Sources */,
 				EBC6A79D298F64E900090A19 /* ProfileView.swift in Sources */,
@@ -425,6 +432,7 @@
 				EB4DE3EE298B341000C4418C /* Color.swift in Sources */,
 				EB4DE407298C8D6A00C4418C /* FullScreenViews.swift in Sources */,
 				EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */,
+				EB8400FD2994ACC800DC57A2 /* CreditCardItem.swift in Sources */,
 				EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */,
 				EB4DE3FC298C21EF00C4418C /* Properties.swift in Sources */,
 				EB8400F729935EE500DC57A2 /* MarketView.swift in Sources */,

@@ -20,6 +20,19 @@ struct ResizedImage: View {
     }
 }
 
+struct ResizedSfSymbolImage: View {
+    var image: String
+    var width: CGFloat
+    var body: some View {
+        VStack(alignment: .leading) {
+            Image(systemName: image)
+                .resizable()
+                .scaledToFit()
+                .frame(width: width)
+        }
+    }
+}
+
 struct CircleImageAccentColor: View {
     var image: String
     var width: CGFloat
