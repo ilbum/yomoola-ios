@@ -28,12 +28,13 @@
 		EB4DE415298E269E00C4418C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB4DE414298E269E00C4418C /* Assets.xcassets */; };
 		EB8400EE2990BC8100DC57A2 /* PayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */; };
 		EB8400F0299217EB00DC57A2 /* JournalKeyboardSaveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */; };
-		EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */; };
+		EB8400F3299322FB00DC57A2 /* InvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F2299322FB00DC57A2 /* InvoiceModel.swift */; };
 		EB8400F729935EE500DC57A2 /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F629935EE500DC57A2 /* MarketView.swift */; };
 		EB8400F929945E4200DC57A2 /* PercentageChangeCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */; };
 		EB8400FB2994931A00DC57A2 /* SearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FA2994931A00DC57A2 /* SearchInput.swift */; };
-		EB8400FD2994ACC800DC57A2 /* CreditCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FC2994ACC800DC57A2 /* CreditCardItem.swift */; };
+		EB8400FD2994ACC800DC57A2 /* CreditCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FC2994ACC800DC57A2 /* CreditCardModel.swift */; };
 		EB8400FF2994B11900DC57A2 /* CreditCardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FE2994B11900DC57A2 /* CreditCardComponents.swift */; };
+		EB8401012995C5C600DC57A2 /* Walletmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8401002995C5C600DC57A2 /* Walletmodel.swift */; };
 		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
 		EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ImageComponents.swift */; };
 		EBC6A799298F599D00090A19 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A798298F599D00090A19 /* UserRow.swift */; };
@@ -83,12 +84,13 @@
 		EB4DE414298E269E00C4418C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB8400ED2990BC8100DC57A2 /* PayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDetailView.swift; sourceTree = "<group>"; };
 		EB8400EF299217EB00DC57A2 /* JournalKeyboardSaveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalKeyboardSaveButton.swift; sourceTree = "<group>"; };
-		EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceItem.swift; sourceTree = "<group>"; };
+		EB8400F2299322FB00DC57A2 /* InvoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceModel.swift; sourceTree = "<group>"; };
 		EB8400F629935EE500DC57A2 /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
 		EB8400F829945E4200DC57A2 /* PercentageChangeCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageChangeCapsule.swift; sourceTree = "<group>"; };
 		EB8400FA2994931A00DC57A2 /* SearchInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInput.swift; sourceTree = "<group>"; };
-		EB8400FC2994ACC800DC57A2 /* CreditCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardItem.swift; sourceTree = "<group>"; };
+		EB8400FC2994ACC800DC57A2 /* CreditCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardModel.swift; sourceTree = "<group>"; };
 		EB8400FE2994B11900DC57A2 /* CreditCardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardComponents.swift; sourceTree = "<group>"; };
+		EB8401002995C5C600DC57A2 /* Walletmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walletmodel.swift; sourceTree = "<group>"; };
 		EBC6A792298EF38900090A19 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		EBC6A796298F492400090A19 /* ImageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponents.swift; sourceTree = "<group>"; };
 		EBC6A798298F599D00090A19 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
@@ -258,8 +260,9 @@
 		EB8400F1299322E100DC57A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB8400FC2994ACC800DC57A2 /* CreditCardItem.swift */,
-				EB8400F2299322FB00DC57A2 /* InvoiceItem.swift */,
+				EB8400FC2994ACC800DC57A2 /* CreditCardModel.swift */,
+				EB8400F2299322FB00DC57A2 /* InvoiceModel.swift */,
+				EB8401002995C5C600DC57A2 /* Walletmodel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				EB8400EE2990BC8100DC57A2 /* PayDetailView.swift in Sources */,
 				EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */,
 				EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */,
+				EB8401012995C5C600DC57A2 /* Walletmodel.swift in Sources */,
 				EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */,
 				EBC6A799298F599D00090A19 /* UserRow.swift in Sources */,
 				EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */,
@@ -432,8 +436,8 @@
 				EB4DE3EE298B341000C4418C /* Color.swift in Sources */,
 				EB4DE407298C8D6A00C4418C /* FullScreenViews.swift in Sources */,
 				EB4DE3FA298B728F00C4418C /* TextInputs.swift in Sources */,
-				EB8400FD2994ACC800DC57A2 /* CreditCardItem.swift in Sources */,
-				EB8400F3299322FB00DC57A2 /* InvoiceItem.swift in Sources */,
+				EB8400FD2994ACC800DC57A2 /* CreditCardModel.swift in Sources */,
+				EB8400F3299322FB00DC57A2 /* InvoiceModel.swift in Sources */,
 				EB4DE3FC298C21EF00C4418C /* Properties.swift in Sources */,
 				EB8400F729935EE500DC57A2 /* MarketView.swift in Sources */,
 				EB8400F929945E4200DC57A2 /* PercentageChangeCapsule.swift in Sources */,

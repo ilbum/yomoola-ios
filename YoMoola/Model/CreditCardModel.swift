@@ -1,5 +1,5 @@
 //
-//  CreditCardItem.swift
+//  CreditCardModel.swift
 //  YoMoola
 //
 //  Created by Blue Heron on 2/8/23.
@@ -8,9 +8,9 @@
 import SwiftUI
 
 // ---------------------------------------------------------
-// # CreditCardItem
+// # CreditCardModel
 // ---------------------------------------------------------
-struct CreditCardItem: Codable, Hashable, Identifiable {
+struct CreditCardModel: Codable, Hashable, Identifiable {
     // ---------------------------------------------------------
     // ## Properties
     // ---------------------------------------------------------
@@ -44,7 +44,7 @@ struct CreditCardItem: Codable, Hashable, Identifiable {
     }
 }
 
-let DataCreditCards: [CreditCardItem] = [
-    CreditCardItem(name: "Chase", type: "Visa", number: "4024007128069472"),
-    CreditCardItem(name: "Bank of America", type: "Visa", number: "4916280452115283")
+let DataCreditCards: [CreditCardModel] = [
+    CreditCardModel(name: "Chase", type: "Visa", number: "4024007128069472"),
+    CreditCardModel(name: "Bank of America", type: "Visa", number: "4916280452115283")
 ]

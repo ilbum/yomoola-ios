@@ -14,20 +14,21 @@ private let coinSize: CGFloat = 30
 // # PayDetailView
 // ----------------------------------------
 struct PayDetailView: View {
-    init(dataCreditCards: [CreditCardItem]) {
+    init(dataCreditCards: [CreditCardModel]) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.accentColorDark)]
         self.dataCreditCards = dataCreditCards
         _activeCreditCard = .init(initialValue: dataCreditCards[0])
     }
     // ---- Parameters
-    var dataCreditCards: [CreditCardItem]
-    @State var activeCreditCard: CreditCardItem
+    var dataCreditCards: [CreditCardModel]
+    @State var activeCreditCard: CreditCardModel
     
     // ---- Properties
     @FocusState private var isInputActive: Bool
     @State private var agreeToDifference = false
     @State private var coinAmount: String = "50"
     @State private var creditCardModal = false
+    @State private var photoTakenBool = false
     @State private var paySuccessBool = false // TODO: update this post view done
     private var costDifference: Float {
         let coinAmountInt = Float(coinAmount) ?? 0
@@ -35,10 +36,10 @@ struct PayDetailView: View {
     }
     private var costDifferenceString: String { "$\(String(costDifference))" }
     private var invoiceItems = [
-        InvoiceItem(quantity: 1, name: "Raspberry Gummies", price: 8.75),
-        InvoiceItem(quantity: 1, name: "Marionberry Gummies", price: 8.75),
-        InvoiceItem(quantity: 2, name: "Maui Wowie All-In-One", price: 25.50),
-        InvoiceItem(quantity: 1, name: "Green Crack All-In-One", price: 25.50)
+        InvoiceModel(quantity: 1, name: "Raspberry Gummies", price: 8.75),
+        InvoiceModel(quantity: 1, name: "Marionberry Gummies", price: 8.75),
+        InvoiceModel(quantity: 2, name: "Maui Wowie All-In-One", price: 25.50),
+        InvoiceModel(quantity: 1, name: "Green Crack All-In-One", price: 25.50)
     ]
     private var invoiceNumber = "8271"
     private var invoiceSubtotal: Float {
@@ -61,28 +62,32 @@ struct PayDetailView: View {
     // ## body
     // ----------------------------------------
     var body: some View {
-        FullScreenBackgroundScrollView(backgroundImage: "background-2") {
-            Spacer().frame(height: 100)
-            // ----------------------------------------
-            // ### main content
-            // ----------------------------------------
-            if paySuccessBool {
-                PaySuccessCard
-            } else {
-                PayCard
+        if !photoTakenBool {
+            CameraView()
+        } else {
+            FullScreenBackgroundScrollView(backgroundImage: "background-2") {
+                Spacer().frame(height: 100)
+                // ----------------------------------------
+                // ### main content
+                // ----------------------------------------
+                if paySuccessBool {
+                    PaySuccessCard
+                } else {
+                    PayCard
+                }
+                Spacer().frame(height: 150)
             }
-            Spacer().frame(height: 150)
-        }
-        .foregroundColor(.text)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                HStack {
-                    Text(walletName)
-                        .foregroundColor(.accentColorDark)
-                        .fontWeight(.bold)
-                        .font(.title3)
-                    
+            .foregroundColor(.text)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Text(walletName)
+                            .foregroundColor(.accentColorDark)
+                            .fontWeight(.bold)
+                            .font(.title3)
+                        
+                    }
                 }
             }
         }
@@ -328,15 +333,15 @@ struct PayDetailView: View {
     }
 }
 
-struct PayDetailView_Previews: PreviewProvider {
-    static var dataCreditCards = [
-        CreditCardItem(name: "Chase", type: "Visa", number: "4024007128069472"),
-        CreditCardItem(name: "Bank of America", type: "Visa", number: "4916280452115283")
-    ]
-    static var previews: some View {
-        PayDetailView(dataCreditCards: dataCreditCards)
-    }
-}
+//struct PayDetailView_Previews: PreviewProvider {
+//    static var dataCreditCards = [
+//        CreditCardModel(name: "Chase", type: "Visa", number: "4024007128069472"),
+//        CreditCardModel(name: "Bank of America", type: "Visa", number: "4916280452115283")
+//    ]
+//    static var previews: some View {
+//        PayDetailView(dataCreditCards: dataCreditCards)
+//    }
+//}
 
 // ----------------------------------------
 // # PayDetailView Components
@@ -344,8 +349,8 @@ struct PayDetailView_Previews: PreviewProvider {
 struct CreditCardModal: View {
     @Environment(\.dismiss) private var dismiss
     // ---- Parameters
-    @Binding var activeCreditCard: CreditCardItem
-    @State var dataCreditCards: [CreditCardItem]
+    @Binding var activeCreditCard: CreditCardModel
+    @State var dataCreditCards: [CreditCardModel]
     var body: some View {
         NavigationView {
             List {

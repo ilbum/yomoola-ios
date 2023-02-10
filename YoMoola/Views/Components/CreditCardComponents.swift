@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CreditCardRow: View {
-    var creditCard: CreditCardItem
+    var creditCard: CreditCardModel
     var body: some View {
         HStack(spacing: 15) {
             ResizedSfSymbolImage(image: "creditcard.circle.fill", width: 60)
@@ -27,7 +27,7 @@ struct CreditCardRow: View {
 }
 
 struct CreditCardComponents_Previews: PreviewProvider {
-    static var creditCard: CreditCardItem = CreditCardItem(name: "Chase", type: "Visa", number: "4024007128069472")
+    static var creditCard: CreditCardModel = CreditCardModel(name: "Chase", type: "Visa", number: "4024007128069472")
     static var previews: some View {
         ScrollView {
             Spacer().frame(height: 200)
