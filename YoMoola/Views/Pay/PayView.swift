@@ -50,7 +50,7 @@ struct PayView: View {
             NavigationLink {
                 PayDetailView(dataCreditCards: DataCreditCards)
             } label: {
-                UserRow(image: "merchant-1", name: "Merchant Name", id: "merchantid")
+                UserRow(image: "merchant-1", name: "Harborside", id: "harborside")
             }
             UserRow(image: "profile-male-2", name: "Kurt Hubble", id: "kurthubble")
             UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")

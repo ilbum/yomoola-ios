@@ -54,7 +54,8 @@ struct PayDetailView: View {
         return invoiceSubtotal + invoiceTaxes
     }
     private var invoiceTotalString: String { String(invoiceTotal) }
-    private var walletName = "Merchant Name"
+    private var walletid = "harborside"
+    private var walletName = "Harborside"
     
     // ----------------------------------------
     // ## body
@@ -90,6 +91,7 @@ struct PayDetailView: View {
     // ----------------------------------------
     // ## Subviews
     // ----------------------------------------
+    // ----- PayCard
     var PayCard: some View {
         PayDetailWhiteCard {
             MerchantInformation
@@ -104,27 +106,17 @@ struct PayDetailView: View {
             Pay
         }
     }
+    // ----- PaySuccessCard
     var PaySuccessCard: some View {
-        /*
-         Merchant Name
-         Invoice Details
-         Coins transferred
-         Credit Card Charge
-         
-         next card, my wallet
-         */
         VStack {
             PayDetailWhiteCard {
-                //TitleUnderline(title: "Paid \(Image(systemName: "checkmark.circle.fill"))")
                 HStack {
+                    MerchantInformation
                     Spacer()
                     Text("\(Image(systemName: "checkmark"))")
                         .foregroundColor(.accentColorDark)
                         .fontWeight(.bold)
                         .font(.largeTitle)
-                        .padding(.horizontal)
-                        .overlay(Rectangle().frame(height: 1).offset(y: 10), alignment: .bottom).foregroundColor(.accentColorDark)
-                    Spacer()
                 }
                 InvoiceDetails
                 RequestedCoinAmount
@@ -181,8 +173,13 @@ struct PayDetailView: View {
             // ----- Wallet Name
             HStack(spacing: 10.0) {
                 CircleImage(image: "merchant-1", width: iconSize * 1.25)
-                Text(walletName)
-                    .font(.title2)
+                VStack(alignment: .leading) {
+                    Text(walletName)
+                        .font(.title2)
+                    Text("@\(walletid)")
+                        .foregroundColor(.textGray)
+                        .font(.callout)
+                }
             }
         }
     }
