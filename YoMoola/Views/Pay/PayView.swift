@@ -30,9 +30,13 @@ struct PayView: View {
                 .padding()
             //.listRowSeparator(.hidden)
             
-            CameraSection
-                .padding(.horizontal)
-                .padding(.top, 5.0)
+            NavigationLink {
+                PayDetailView(dataCreditCards: DataCreditCards)
+            } label: {
+                CameraSection
+                    .padding(.horizontal)
+                    .padding(.top, 5.0)
+            }
             //.listRowSeparator(.hidden)
             
             HStack {
@@ -47,11 +51,12 @@ struct PayView: View {
             .padding(.horizontal)
             .listRowSeparator(.hidden)
             
-            NavigationLink {
-                PayDetailView(dataCreditCards: DataCreditCards)
-            } label: {
-                UserRow(image: "merchant-1", name: "Harborside", id: "harborside")
-            }
+//            NavigationLink {
+//                PayDetailView(dataCreditCards: DataCreditCards)
+//            } label: {
+//                UserRow(image: "merchant-1", name: "Harborside", id: "harborside")
+//            }
+            UserRow(image: "merchant-1", name: "Harborside", id: "harborside")
             UserRow(image: "profile-male-2", name: "Kurt Hubble", id: "kurthubble")
             UserRow(image: "profile-female-1", name: "Deborah Penton", id: "browniexbay")
             UserRow(image: "profile-male-3", name: "Rex Cota", id: "rexelglass")
@@ -108,7 +113,7 @@ struct PayView: View {
         }
         .foregroundColor(.accentColorDark)
         .sheet(isPresented: $cameraModal) {
-            CameraQrView()
+            TempView()
         }
     }
     var SearchResults: some View {
@@ -150,7 +155,7 @@ struct PayView_Previews: PreviewProvider {
 // ----------------------------------------
 // WalletView Components
 // ----------------------------------------
-struct CameraQrView: View {
+struct TempView: View {
     var body: some View {
         VStack {
             Text("Camera Section TODO")

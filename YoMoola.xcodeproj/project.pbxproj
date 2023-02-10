@@ -35,6 +35,7 @@
 		EB8400FD2994ACC800DC57A2 /* CreditCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FC2994ACC800DC57A2 /* CreditCardModel.swift */; };
 		EB8400FF2994B11900DC57A2 /* CreditCardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FE2994B11900DC57A2 /* CreditCardComponents.swift */; };
 		EB8401012995C5C600DC57A2 /* Walletmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8401002995C5C600DC57A2 /* Walletmodel.swift */; };
+		EB8401252995E1CE00DC57A2 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = EB8401242995E1CE00DC57A2 /* CodeScanner */; };
 		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
 		EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ImageComponents.swift */; };
 		EBC6A799298F599D00090A19 /* UserRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A798298F599D00090A19 /* UserRow.swift */; };
@@ -102,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8401252995E1CE00DC57A2 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +302,9 @@
 			dependencies = (
 			);
 			name = YoMoola;
+			packageProductDependencies = (
+				EB8401242995E1CE00DC57A2 /* CodeScanner */,
+			);
 			productName = YoMoola;
 			productReference = EB00B01A2988A2B700D696E7 /* YoMoola.app */;
 			productType = "com.apple.product-type.application";
@@ -372,6 +377,9 @@
 				Base,
 			);
 			mainGroup = EB00B0112988A2B700D696E7;
+			packageReferences = (
+				EB8401232995E1CE00DC57A2 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = EB00B01B2988A2B700D696E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -603,6 +611,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YoMoola/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera permission needed to scan QR codes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -633,6 +642,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YoMoola/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera permission needed to scan QR codes";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -767,6 +777,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EB8401232995E1CE00DC57A2 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EB8401242995E1CE00DC57A2 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB8401232995E1CE00DC57A2 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB00B0122988A2B700D696E7 /* Project object */;
 }

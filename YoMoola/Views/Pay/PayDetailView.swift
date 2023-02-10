@@ -5,6 +5,7 @@
 //  Created by Blue Heron on 2/5/23.
 //
 
+import CodeScanner
 import SwiftUI
 
 private let iconSize: CGFloat = 40
@@ -14,6 +15,9 @@ private let coinSize: CGFloat = 30
 // # PayDetailView
 // ----------------------------------------
 struct PayDetailView: View {
+    // ----------------------------------------
+    // ## properties
+    // ----------------------------------------
     init(dataCreditCards: [CreditCardModel]) {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color.accentColorDark)]
         self.dataCreditCards = dataCreditCards
@@ -28,8 +32,9 @@ struct PayDetailView: View {
     @State private var agreeToDifference = false
     @State private var coinAmount: String = "50"
     @State private var creditCardModal = false
-    @State private var photoTakenBool = false
     @State private var paySuccessBool = false // TODO: update this post view done
+    @State private var showScanner = true
+    private var showContent: Bool { showScanner }
     private var costDifference: Float {
         let coinAmountInt = Float(coinAmount) ?? 0
         return (invoiceTotal + (invoiceTotal * 0.0255)) - coinAmountInt
@@ -59,38 +64,75 @@ struct PayDetailView: View {
     private var walletName = "Harborside"
     
     // ----------------------------------------
-    // ## body
+    // MARK: body
     // ----------------------------------------
     var body: some View {
-        if !photoTakenBool {
-            CameraView()
-        } else {
-            FullScreenBackgroundScrollView(backgroundImage: "background-2") {
-                Spacer().frame(height: 100)
-                // ----------------------------------------
-                // ### main content
-                // ----------------------------------------
+        FullScreenBackgroundScrollView(backgroundImage: "background-2") {
+            Spacer().frame(height: 100)
+            // ----------------------------------------
+            // ### main content
+            // ----------------------------------------
+            if !showContent {
                 if paySuccessBool {
                     PaySuccessCard
                 } else {
                     PayCard
                 }
-                Spacer().frame(height: 150)
             }
-            .foregroundColor(.text)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    HStack {
-                        Text(walletName)
-                            .foregroundColor(.accentColorDark)
-                            .fontWeight(.bold)
-                            .font(.title3)
-                        
-                    }
+            Spacer().frame(height: 150)
+        }
+        .foregroundColor(.text)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                HStack {
+                    Text(walletName)
+                        .foregroundColor(.accentColorDark)
+                        .fontWeight(.bold)
+                        .font(.title3)
+                    
+                }
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    showScanner.toggle()
+                } label: {
+                    Label("Scan", systemImage: "qrcode.viewfinder")
+                }
+                .sheet(isPresented: $showScanner) {
+                    CodeScannerView(codeTypes: [.qr], simulatedData: "Harborside", completion: handleScan)
                 }
             }
         }
+//        if showScanner {
+//            CameraView(showScanner: $showScanner)
+//        } else {
+//            FullScreenBackgroundScrollView(backgroundImage: "background-2") {
+//                Spacer().frame(height: 100)
+//                // ----------------------------------------
+//                // ### main content
+//                // ----------------------------------------
+//                if paySuccessBool {
+//                    PaySuccessCard
+//                } else {
+//                    PayCard
+//                }
+//                Spacer().frame(height: 150)
+//            }
+//            .foregroundColor(.text)
+//            .navigationBarTitleDisplayMode(.inline)
+//            .toolbar {
+//                ToolbarItem(placement: .principal) {
+//                    HStack {
+//                        Text(walletName)
+//                            .foregroundColor(.accentColorDark)
+//                            .fontWeight(.bold)
+//                            .font(.title3)
+//
+//                    }
+//                }
+//            }
+//        }
     }
     
     // ----------------------------------------
@@ -220,12 +262,12 @@ struct PayDetailView: View {
                 .foregroundColor(.text)
             
             // ----- Credit Card Modal
-            Button(action: { creditCardModal.toggle() }) {
-                CreditCardRow(creditCard: activeCreditCard)
-            }
-            .sheet(isPresented: $creditCardModal) {
-                CreditCardModal(activeCreditCard: $activeCreditCard, dataCreditCards: dataCreditCards)
-            }
+//            Button(action: { creditCardModal.toggle() }, label: {
+//                CreditCardRow(creditCard: activeCreditCard)
+//            })
+//            .sheet(isPresented: $creditCardModal) {
+//                CreditCardModal(activeCreditCard: $activeCreditCard, dataCreditCards: dataCreditCards)
+//            }
             
             // ----- Charge the difference
             VStack {
@@ -331,17 +373,25 @@ struct PayDetailView: View {
         }
         .padding(.bottom)
     }
+    
+    // ----------------------------------------
+    // MARK: Functions
+    // ----------------------------------------
+    func handleScan(result: Result<ScanResult, ScanError>) {
+        showScanner = false
+        
+    }
 }
 
-//struct PayDetailView_Previews: PreviewProvider {
-//    static var dataCreditCards = [
-//        CreditCardModel(name: "Chase", type: "Visa", number: "4024007128069472"),
-//        CreditCardModel(name: "Bank of America", type: "Visa", number: "4916280452115283")
-//    ]
-//    static var previews: some View {
-//        PayDetailView(dataCreditCards: dataCreditCards)
-//    }
-//}
+struct PayDetailView_Previews: PreviewProvider {
+    static var dataCreditCards = [
+        CreditCardModel(name: "Chase", type: "Visa", number: "4024007128069472"),
+        CreditCardModel(name: "Bank of America", type: "Visa", number: "4916280452115283")
+    ]
+    static var previews: some View {
+        PayDetailView(dataCreditCards: dataCreditCards)
+    }
+}
 
 // ----------------------------------------
 // # PayDetailView Components
