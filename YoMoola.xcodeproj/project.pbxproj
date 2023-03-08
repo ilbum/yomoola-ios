@@ -34,7 +34,7 @@
 		EB8400FB2994931A00DC57A2 /* SearchInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FA2994931A00DC57A2 /* SearchInput.swift */; };
 		EB8400FD2994ACC800DC57A2 /* CreditCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FC2994ACC800DC57A2 /* CreditCardModel.swift */; };
 		EB8400FF2994B11900DC57A2 /* CreditCardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8400FE2994B11900DC57A2 /* CreditCardComponents.swift */; };
-		EB8401012995C5C600DC57A2 /* Walletmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8401002995C5C600DC57A2 /* Walletmodel.swift */; };
+		EB8401012995C5C600DC57A2 /* WalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8401002995C5C600DC57A2 /* WalletModel.swift */; };
 		EB8401252995E1CE00DC57A2 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = EB8401242995E1CE00DC57A2 /* CodeScanner */; };
 		EBC6A793298EF38900090A19 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A792298EF38900090A19 /* PayView.swift */; };
 		EBC6A797298F492400090A19 /* ImageComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC6A796298F492400090A19 /* ImageComponents.swift */; };
@@ -91,7 +91,7 @@
 		EB8400FA2994931A00DC57A2 /* SearchInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInput.swift; sourceTree = "<group>"; };
 		EB8400FC2994ACC800DC57A2 /* CreditCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardModel.swift; sourceTree = "<group>"; };
 		EB8400FE2994B11900DC57A2 /* CreditCardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardComponents.swift; sourceTree = "<group>"; };
-		EB8401002995C5C600DC57A2 /* Walletmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Walletmodel.swift; sourceTree = "<group>"; };
+		EB8401002995C5C600DC57A2 /* WalletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletModel.swift; sourceTree = "<group>"; };
 		EBC6A792298EF38900090A19 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
 		EBC6A796298F492400090A19 /* ImageComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageComponents.swift; sourceTree = "<group>"; };
 		EBC6A798298F599D00090A19 /* UserRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRow.swift; sourceTree = "<group>"; };
@@ -264,7 +264,7 @@
 			children = (
 				EB8400FC2994ACC800DC57A2 /* CreditCardModel.swift */,
 				EB8400F2299322FB00DC57A2 /* InvoiceModel.swift */,
-				EB8401002995C5C600DC57A2 /* Walletmodel.swift */,
+				EB8401002995C5C600DC57A2 /* WalletModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -428,7 +428,7 @@
 				EB8400EE2990BC8100DC57A2 /* PayDetailView.swift in Sources */,
 				EB00B0202988A2B700D696E7 /* ContentView.swift in Sources */,
 				EB4DE40B298C92CA00C4418C /* WhiteCards.swift in Sources */,
-				EB8401012995C5C600DC57A2 /* Walletmodel.swift in Sources */,
+				EB8401012995C5C600DC57A2 /* WalletModel.swift in Sources */,
 				EB4DE410298DBA5900C4418C /* DarkGreenButton.swift in Sources */,
 				EBC6A799298F599D00090A19 /* UserRow.swift in Sources */,
 				EB4DE3F8298B71DC00C4418C /* SignIn.swift in Sources */,

@@ -23,6 +23,7 @@ struct PayDetailView: View {
         self.dataCreditCards = dataCreditCards
         _activeCreditCard = .init(initialValue: dataCreditCards[0])
     }
+    
     // ---- Parameters
     var dataCreditCards: [CreditCardModel]
     @State var activeCreditCard: CreditCardModel
@@ -86,7 +87,7 @@ struct PayDetailView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 HStack {
-                    Text(walletName)
+                    Text(!showContent ? walletName : "Scan QR Code")
                         .foregroundColor(.accentColorDark)
                         .fontWeight(.bold)
                         .font(.title3)

@@ -30,14 +30,18 @@ struct PayView: View {
                 .padding()
             //.listRowSeparator(.hidden)
             
-            NavigationLink {
-                PayDetailView(dataCreditCards: DataCreditCards)
-            } label: {
-                CameraSection
-                    .padding(.horizontal)
-                    .padding(.top, 5.0)
-            }
+//            NavigationLink {
+//                PayDetailView(dataCreditCards: DataCreditCards)
+//            } label: {
+//                QrScanRow
+//                    .padding(.horizontal)
+//                    .padding(.top, 5.0)
+//            }
             //.listRowSeparator(.hidden)
+            
+            QrScanRow
+                .padding(.horizontal)
+                .padding(.top, 5.0)
             
             HStack {
                 CircleImage(image: "yomoola-logo-padding-bg-green", width: 55)
@@ -100,8 +104,10 @@ struct PayView: View {
     var SearchSection: some View {
         SearchInput(searchString: $searchString, labelText: "Search for a Wallet")
     }
-    var CameraSection: some View {
-        Button(action: { cameraModal = true }) {
+    var QrScanRow: some View {
+        NavigationLink {
+            PayDetailView(dataCreditCards: DataCreditCards)
+        } label: {
             HStack {
                 Text(Image(systemName: "qrcode"))
                     .font(.largeTitle)
@@ -110,11 +116,22 @@ struct PayView: View {
                     .font(.title3)
                 Spacer()
             }
+            .foregroundColor(.accentColorDark)
         }
-        .foregroundColor(.accentColorDark)
-        .sheet(isPresented: $cameraModal) {
-            TempView()
-        }
+//        Button(action: { cameraModal = true }) {
+//            HStack {
+//                Text(Image(systemName: "qrcode"))
+//                    .font(.largeTitle)
+//                    .padding(.trailing, 9.0)
+//                Text("Scan a QR code")
+//                    .font(.title3)
+//                Spacer()
+//            }
+//        }
+//        .foregroundColor(.accentColorDark)
+//        .sheet(isPresented: $cameraModal) {
+//            TempView()
+//        }
     }
     var SearchResults: some View {
         VStack {
@@ -146,11 +163,17 @@ struct PayView: View {
 }
 
 struct PayView_Previews: PreviewProvider {
+    @State static var dataWallet = [
+        WalletModel(name: "Harborside", username: "harborside", image: "merchant-1"),
+        WalletModel(name: "Kurt Hubble", username: "kurthubble", image: "profile-male-2"),
+        WalletModel(name: "Deborah Penton", username: "browniexbay", image: "profile-female-1"),
+        WalletModel(name: "Rex Cota", username: "rexelglass", image: "profile-male-3"),
+        WalletModel(name: "Irma Nelson", username: "irma", image: "profile-female-2")
+    ]
     static var previews: some View {
         PayView()
     }
 }
-
 
 // ----------------------------------------
 // WalletView Components
@@ -167,4 +190,3 @@ struct TempView: View {
         .frame(height: 400)
     }
 }
-

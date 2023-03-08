@@ -10,6 +10,6 @@
   - connect both Pay and Profile view ✓
 - Payment success view ✓
 - Harborside store
-- QR Camera
-  - route the payment from the QR code
+- QR Camera ✓
+  - route the payment from the QR code ✓
 - Profile additional views
